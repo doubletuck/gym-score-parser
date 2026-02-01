@@ -23,8 +23,14 @@ mvn clean package
 
 ## Running the Application
 
+Basic run:
 ```bash
 mvn spring-boot:run
+```
+
+Run in quiet mode in the background:
+```
+mvn spring-boot:run -q 2>&1 &
 ```
 
 Or using the compiled JAR:
