@@ -1,4 +1,4 @@
-package com.example;
+package com.doubletuck.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
