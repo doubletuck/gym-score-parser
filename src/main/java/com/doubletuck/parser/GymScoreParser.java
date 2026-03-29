@@ -22,8 +22,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 @Component
 public class GymScoreParser {
@@ -35,16 +38,33 @@ public class GymScoreParser {
     public void parseAndPrint() {
         try {
             initializeWebDriver();
-            // String pageSource = getPageSource();
-            // parseSessions(pageSource);
-            // printSessions();
-            extractScores("https://virti.us/session?s=5j0yATMveQ");
+            String pageSource = getPageSource();
+            parseSessions(pageSource);
+            exportSessions();
+//            printSessions();
         } catch (Exception e) {
             System.err.println("Error fetching or parsing the web page:");
             e.printStackTrace();
         } finally {
             closeWebDriver();
         }
+    }
+
+    private void exportSessions() {
+//        GymScoreVirtius score = new GymScoreVirtius();
+//        score.setScoreUrl("https://virti.us/session?s=yLmIWwKtU0");
+
+         if (viewSessions.size() == 0) {
+             System.out.println("No sessions found on virti.us");
+             return;
+         }
+         ArrayList<GymScoreVirtius> testSessions = new ArrayList<>();
+         testSessions.add(viewSessions.get(viewSessions.size() - 1));
+         testSessions.add(viewSessions.get(viewSessions.size() - 2));
+//         GymScoreVirtius score = viewSessions.getLast();
+
+        GymScoreClipboardParser clipboardParser = new GymScoreClipboardParser(testSessions);
+        clipboardParser.export();
     }
 
     private void initializeWebDriver() {
@@ -114,6 +134,10 @@ public class GymScoreParser {
     private void parseSessions(String pageSource) {
 
         Document document = Jsoup.parse(pageSource);
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(
+                "EEE M/dd/yyyy '@' h:mm a",
+                Locale.ENGLISH
+        );
 
         // Find all divs with class "heroMessage"
         Elements heroMessages = document.select("div.heroMessage");
@@ -141,9 +165,12 @@ public class GymScoreParser {
             if (!scoreUrl.isEmpty()) {
                 GymScoreVirtius session = new GymScoreVirtius();
                 session.setScoreUrl(scoreUrl);
+                session.setSessionId(scoreUrl.substring(scoreUrl.indexOf("s=") + 2));
                 session.setMeetName(meetName);
-                session.setMeetDate(meetDate);
                 session.setWag(isWag);
+                if (meetDate != null && !meetDate.trim().isEmpty()) {
+                    session.setMeetDate(LocalDateTime.parse(meetDate, dateFormatter));
+                }
                 viewSessions.add(session);
             }
         }
