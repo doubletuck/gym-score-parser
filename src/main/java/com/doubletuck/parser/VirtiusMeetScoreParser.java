@@ -1,42 +1,35 @@
 package com.doubletuck.parser;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.Setter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.doubletuck.model.GymScoreVirtius;
+import com.doubletuck.model.VirtiusScore;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.time.Duration;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GymScoreClipboardParser {
+public class VirtiusMeetScoreParser extends AbstractWebParser {
 
-    private final static Logger logger = LoggerFactory.getLogger(GymScoreClipboardParser.class);
+    private final static Logger logger = LoggerFactory.getLogger(VirtiusMeetScoreParser.class);
 
-    private WebDriver driver = null;
     @Setter
-    private List<GymScoreVirtius> meetSessionList = new ArrayList<GymScoreVirtius>();
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+    private List<VirtiusScore> meetSessionList = new ArrayList<VirtiusScore>();
 
-    public GymScoreClipboardParser() {
+    public VirtiusMeetScoreParser() {
     }
 
-    public GymScoreClipboardParser(List<GymScoreVirtius> meetSessionList) {
+    public VirtiusMeetScoreParser(List<VirtiusScore> meetSessionList) {
         this.meetSessionList = meetSessionList;
     }
 
@@ -49,19 +42,19 @@ public class GymScoreClipboardParser {
 
         try {
             initializeWebDriver();
-            for (GymScoreVirtius currentSession : meetSessionList) {
+            for (VirtiusScore currentSession : meetSessionList) {
                 logger.info("Start processing the Virtius meet scores export for session: {}", currentSession);
 
                 String scoreText = extractScores(currentSession.getScoreUrl());
                 if (scoreText != null) {
                     try {
-                        Path exportFile = Path.of("data/" + generateFileName(currentSession));
+                        Path exportFile = Path.of("data/" + currentSession.generateFileName() + ".csv");
                         writeTsvAsCsv(scoreText, exportFile);
                         currentSession.setExportFileName(exportFile.getFileName().toString());
-                        currentSession.setExportStatus(GymScoreVirtius.ExportStatus.EXPORTED);
+                        currentSession.setExportStatus(VirtiusScore.ExportStatus.EXPORTED);
                         logger.info("Completed processing the Virtius meet scores export for session: {}", currentSession);
                     } catch (Exception e) {
-                        currentSession.setExportStatus(GymScoreVirtius.ExportStatus.ERROR);
+                        currentSession.setExportStatus(VirtiusScore.ExportStatus.ERROR);
                         currentSession.setExportMessage(e.getMessage());
                         logger.error("Error processing the Virtius meet scores export for session: {}", currentSession, e);
                     }
@@ -74,41 +67,8 @@ public class GymScoreClipboardParser {
         }
     }
 
-    private String generateFileName(GymScoreVirtius currentSession) {
-        return String.join("_",
-                        currentSession.getMeetDate().format(formatter),
-                        currentSession.getSessionId(),
-                        currentSession.isWag() ? "WAG" : "MAG",
-                        currentSession.getMeetName().replaceAll(("[/\\\\\\s-]+"), "")) +
-                ".csv";
-    }
-
-    private void initializeWebDriver() {
-        if (this.driver != null) {
-            return;
-        }
-
-        WebDriverManager.chromedriver().setup();
-
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--start-maximized");
-        options.addArguments(
-                "--user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
-
-        this.driver = new ChromeDriver(options);
-    }
-
-    private void closeWebDriver() {
-        if (this.driver != null) {
-            this.driver.quit();
-        }
-    }
 
     private String extractScores(String sessionUrl) {
-
         String exportedText = null;
 
         try {
