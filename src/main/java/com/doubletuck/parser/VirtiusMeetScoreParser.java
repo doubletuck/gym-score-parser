@@ -18,12 +18,14 @@ import org.slf4j.LoggerFactory;
 
 import com.doubletuck.model.VirtiusScore;
 
+import lombok.Getter;
 import lombok.Setter;
 
 public class VirtiusMeetScoreParser extends AbstractWebParser {
 
   private final static Logger logger = LoggerFactory.getLogger(VirtiusMeetScoreParser.class);
 
+  @Getter
   @Setter
   private List<VirtiusScore> meetSessionList = new ArrayList<VirtiusScore>();
 
