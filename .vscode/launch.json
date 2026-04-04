@@ -5,7 +5,7 @@
       "type": "java",
       "name": "Debug GymScoreParser",
       "request": "launch",
-      "mainClass": "com.example.GymScoreParserApplication",
+      "mainClass": "com.doubletuck.GymScoreParserApplication",
       "projectName": "gym-score-parser",
       "cwd": "${workspaceFolder}",
       "console": "integratedTerminal",

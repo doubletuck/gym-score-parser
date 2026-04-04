@@ -117,30 +117,31 @@ public class VirtiusExportStatusWriter {
     try (
         BufferedReader reader = Files.newBufferedReader(OUTPUT_FILE);
         CSVParser parser = CSVParser.parse(reader, CSVFormat.RFC4180.builder()
+            .setHeader(Headers.class)
             .setSkipHeaderRecord(true)
             .setRecordSeparator("\n")
             .get());) {
 
       for (CSVRecord row : parser) {
         VirtiusScore score = new VirtiusScore();
-        String meetDateStr = row.get(Headers.MEET_DATE.ordinal() + 1);
+        String meetDateStr = row.get(Headers.MEET_DATE);
         if (!meetDateStr.isEmpty()) {
           score.setMeetDate(LocalDateTime.parse(meetDateStr, DATE_FORMATTER));
         }
-        score.setMeetName(row.get(Headers.MEET_NAME.ordinal() + 1));
-        score.setSessionId(row.get(Headers.SESSION_ID.ordinal() + 1));
-        score.setScoreUrl(row.get(Headers.SCORE_URL.ordinal() + 1));
-        score.setWag("WAG".equals(row.get(Headers.WAG_MAG.ordinal() + 1)));
-        String exportStatusStr = row.get(Headers.EXPORT_STATUS.ordinal() + 1);
+        score.setMeetName(row.get(Headers.MEET_NAME));
+        score.setSessionId(row.get(Headers.SESSION_ID));
+        score.setScoreUrl(row.get(Headers.SCORE_URL));
+        score.setWag("WAG".equals(row.get(Headers.WAG_MAG)));
+        String exportStatusStr = row.get(Headers.EXPORT_STATUS);
         if (!exportStatusStr.isEmpty()) {
           score.setExportStatus(VirtiusScore.ExportStatus.valueOf(exportStatusStr));
         }
-        score.setExportFilename(row.get(Headers.EXPORT_FILENAME.ordinal() + 1));
-        String exportDateStr = row.get(Headers.EXPORT_TIMESTAMP.ordinal() + 1);
+        score.setExportFilename(row.get(Headers.EXPORT_FILENAME));
+        String exportDateStr = row.get(Headers.EXPORT_TIMESTAMP);
         if (!exportDateStr.isEmpty()) {
           score.setExportDate(LocalDateTime.parse(exportDateStr, DATE_FORMATTER));
         }
-        score.setExportMessage(row.get(Headers.EXPORT_MESSAGE.ordinal() + 1));
+        score.setExportMessage(row.get(Headers.EXPORT_MESSAGE));
         virtiusScoreList.add(score);
       }
 

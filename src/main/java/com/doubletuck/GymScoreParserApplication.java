@@ -26,20 +26,17 @@ public class GymScoreParserApplication {
     List<VirtiusScore> virtiusScoreList = sessionsParser.getSessionList();
     logger.info("Virtius scores found: {}", virtiusScoreList.size());
 
-    logger.info("Writing to an export file.");
-    VirtiusExportStatusWriter writer = new VirtiusExportStatusWriter();
-    // writer.writeFile(virtiusScoreList);
-    // logger.info("Export completed.");
-
     LocalDateTime someDate = LocalDateTime.now().minusMonths(2);
     logger.info("Exporting meets from before {}", someDate);
+
+    VirtiusExportStatusWriter writer = new VirtiusExportStatusWriter();
     List<VirtiusScore> sessionsNeedingExport = writer.filterOutExportedSessions(virtiusScoreList, someDate);
     VirtiusMeetScoreParser scoreParser = new VirtiusMeetScoreParser(sessionsNeedingExport);
     scoreParser.export();
     sessionsNeedingExport = scoreParser.getMeetSessionList();
 
     writer.updateFile(sessionsNeedingExport);
-    logger.info("Export Completed.");
+    logger.info("Export processing is finished");
 
     context.close();
     System.exit(0);

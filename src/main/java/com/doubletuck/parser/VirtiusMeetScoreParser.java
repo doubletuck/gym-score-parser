@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +22,13 @@ import com.doubletuck.model.VirtiusScore;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Reads and exports the scores that are hosted on the Virti.us website.
+ * 
+ * When using the parser, a list of VirtiusScore objects is passed in and stored as
+ * meetSessionList. Each VirtiusScore object has a scoreUrl that indicates the meet
+ * session url, and from there the scores can be found and exported to file.
+ */
 public class VirtiusMeetScoreParser extends AbstractWebParser {
 
   private final static Logger logger = LoggerFactory.getLogger(VirtiusMeetScoreParser.class);
@@ -39,14 +47,15 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
   public void export() {
 
     if (meetSessionList.isEmpty()) {
-      logger.info("No Virtius meet sessions where provided, therefore exiting the exports processing.");
+      logger.info("No Virtius meet sessions where provided for the parser. Exiting exports processing.");
       return;
     }
 
     try {
+      logger.info("Initiate the download of {} Virtius meet sessions.", this.meetSessionList.size());
       initializeWebDriver();
       for (VirtiusScore currentSession : meetSessionList) {
-        logger.info("Start processing the Virtius meet scores export for session: {}", currentSession);
+        logger.info("Begin extracting scores for session {}.", currentSession.getScoreUrl());
 
         String scoreText = extractScores(currentSession.getScoreUrl());
         if (scoreText != null) {
@@ -54,18 +63,20 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
             Path exportFile = Path.of("data/" + currentSession.generateFileName() + ".csv");
             writeTsvAsCsv(scoreText, exportFile);
             currentSession.setExportFilename(exportFile.getFileName().toString());
+            currentSession.setExportDate(LocalDateTime.now());
             currentSession.setExportStatus(VirtiusScore.ExportStatus.EXPORTED);
-            logger.info("Completed processing the Virtius meet scores export for session: {}", currentSession);
+            logger.info("Exported score data for session {} to {}: {}", currentSession.getScoreUrl(),
+                currentSession.getExportFilename(), currentSession);
           } catch (Exception e) {
             currentSession.setExportStatus(VirtiusScore.ExportStatus.ERROR);
             currentSession.setExportMessage(e.getMessage());
-            logger.error("Error processing the Virtius meet scores export for session: {}", currentSession, e);
+            logger.error("Error exporting score data for session {}.", currentSession, e);
           }
         }
       }
     } catch (Exception e) {
       logger.error("Error fetching or parsing the web page.", e);
-    } finally {
+    } finally { 
       closeWebDriver();
     }
   }
@@ -74,25 +85,23 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
     String exportedText = null;
 
     try {
-      System.out.println("\n=== Extracting Scores ===");
-      System.out.println("Navigating to session URL: " + sessionUrl);
+      logger.trace("{} - Invoke the web driver and go to the url.", sessionUrl);
       driver.get(sessionUrl);
 
+      logger.trace("{} - Pause for 10 seconds.", sessionUrl)
       WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-      // Click STATS button
+      logger.trace("{} - Click on the 'STATS' button", sessionUrl);
       WebElement statsButton = wait.until(
           ExpectedConditions.elementToBeClickable(
               By.xpath("//div[@class='triggerPanelRow']//button[contains(text(), 'STATS')]")));
       statsButton.click();
 
-      // Wait for modal
+      logger.trace("{} - Wait for the modal 'class name = modal-content' to return", sessionUrl);
       WebElement modalContent = wait.until(
           ExpectedConditions.visibilityOfElementLocated(By.className("modal-content")));
 
-      // ---------------------------------------------------------
-      // IMPORTANT PART: Intercept clipboard writes
-      // ---------------------------------------------------------
+      logger.trace("{} - Generate javascript script to intercept the clipboard text that is generated from clicking the STATS button", sessionUrl);
       JavascriptExecutor js = (JavascriptExecutor) driver;
       js.executeScript("""
               window.__copiedText = null;
@@ -106,29 +115,26 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
               }
           """);
 
-      // Click export button
+      logger.trace("{} - Find export button and click it. Button is in element with class name = 'exportData'.", sessionUrl);
       WebElement exportDataDiv = modalContent.findElement(By.className("exportData"));
       WebElement exportButton = exportDataDiv.findElement(By.tagName("button"));
       exportButton.click();
 
-      // Give JS a moment to run
+      logger.trace("{} - Give the javascript a moment to run. Sleep for 500 milliseconds.", sessionUrl);
       Thread.sleep(500);
 
-      // Retrieve intercepted text
+      logger.trace("{} - Retrieve the intercepted text.", sessionUrl);
       exportedText = (String) js.executeScript(
           "return window.__copiedText;");
 
       if (exportedText != null && !exportedText.isBlank()) {
-        System.out.println("\n=== Exported Data ===");
-        System.out.println(exportedText);
-        System.out.println("=== End Exported Data ===\n");
+        logger.trace("{} - Export data:\n{}", sessionUrl, exportedText);
       } else {
-        System.out.println("No export data captured.");
+        logger.info("{} - No export data captured.", sessionUrl);
       }
 
     } catch (Exception e) {
-      System.err.println("Error extracting scores:");
-      e.printStackTrace();
+      logger.error("Error extracting scores from the Virtius clipboard", e);
     }
 
     return exportedText;
@@ -187,5 +193,4 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
 
     return mustQuote ? "\"" + escaped + "\"" : escaped;
   }
-
 }
