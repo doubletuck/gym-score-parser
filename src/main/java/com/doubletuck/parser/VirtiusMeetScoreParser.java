@@ -16,6 +16,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import com.doubletuck.model.VirtiusScore;
 
@@ -25,13 +27,19 @@ import lombok.Setter;
 /**
  * Reads and exports the scores that are hosted on the Virti.us website.
  * 
- * When using the parser, a list of VirtiusScore objects is passed in and stored as
- * meetSessionList. Each VirtiusScore object has a scoreUrl that indicates the meet
+ * When using the parser, a list of VirtiusScore objects is passed in and stored
+ * as
+ * meetSessionList. Each VirtiusScore object has a scoreUrl that indicates the
+ * meet
  * session url, and from there the scores can be found and exported to file.
  */
+@Component
 public class VirtiusMeetScoreParser extends AbstractWebParser {
 
   private final static Logger logger = LoggerFactory.getLogger(VirtiusMeetScoreParser.class);
+
+  @Value("${export.data.directory}")
+  private String exportDataDirectory;
 
   @Getter
   @Setter
@@ -60,7 +68,7 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
         String scoreText = extractScores(currentSession.getScoreUrl());
         if (scoreText != null) {
           try {
-            Path exportFile = Path.of("data/" + currentSession.generateFileName() + ".csv");
+            Path exportFile = Path.of(exportDataDirectory + "/" + currentSession.generateFileName() + ".csv");
             writeTsvAsCsv(scoreText, exportFile);
             currentSession.setExportFilename(exportFile.getFileName().toString());
             currentSession.setExportDate(LocalDateTime.now());
@@ -76,7 +84,7 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
       }
     } catch (Exception e) {
       logger.error("Error fetching or parsing the web page.", e);
-    } finally { 
+    } finally {
       closeWebDriver();
     }
   }
@@ -88,7 +96,7 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
       logger.trace("{} - Invoke the web driver and go to the url.", sessionUrl);
       driver.get(sessionUrl);
 
-      logger.trace("{} - Pause for 10 seconds.", sessionUrl)
+      logger.trace("{} - Pause for 10 seconds.", sessionUrl);
       WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
       logger.trace("{} - Click on the 'STATS' button", sessionUrl);
@@ -101,7 +109,9 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
       WebElement modalContent = wait.until(
           ExpectedConditions.visibilityOfElementLocated(By.className("modal-content")));
 
-      logger.trace("{} - Generate javascript script to intercept the clipboard text that is generated from clicking the STATS button", sessionUrl);
+      logger.trace(
+          "{} - Generate javascript script to intercept the clipboard text that is generated from clicking the STATS button",
+          sessionUrl);
       JavascriptExecutor js = (JavascriptExecutor) driver;
       js.executeScript("""
               window.__copiedText = null;
@@ -115,7 +125,8 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
               }
           """);
 
-      logger.trace("{} - Find export button and click it. Button is in element with class name = 'exportData'.", sessionUrl);
+      logger.trace("{} - Find export button and click it. Button is in element with class name = 'exportData'.",
+          sessionUrl);
       WebElement exportDataDiv = modalContent.findElement(By.className("exportData"));
       WebElement exportButton = exportDataDiv.findElement(By.tagName("button"));
       exportButton.click();

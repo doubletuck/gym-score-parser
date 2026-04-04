@@ -7,6 +7,11 @@ logging:
   file:
     name: logs/application.log
 
+export:
+  data:
+    directory: data
+    filename: meet_scores_export_status.csv
+
 spring:
   application:
-    name=gym-score-parser:
+    name: gym-score-parser

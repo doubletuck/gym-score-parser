@@ -19,14 +19,25 @@ import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import com.doubletuck.model.VirtiusScore;
 
+@Component
 public class VirtiusExportStatusWriter {
 
   private static final Logger logger = LoggerFactory.getLogger(VirtiusExportStatusWriter.class);
 
-  private static final Path OUTPUT_FILE = Path.of("data/meet_scores_export_status.csv");
+  @Value("${export.data.directory}")
+  private String exportDataDirectory;
+
+  @Value("${export.data.filename}")
+  private String exportDataFilename;
+
+  private Path getOutputFilePath() {
+    return Path.of(exportDataDirectory, exportDataFilename);
+  }
 
   private enum Headers {
     MEET_DATE,
@@ -60,7 +71,7 @@ public class VirtiusExportStatusWriter {
 
   public void writeFile(List<VirtiusScore> sessions) {
     try {
-      Files.createDirectories(OUTPUT_FILE.getParent());
+      Files.createDirectories(getOutputFilePath().getParent());
     } catch (IOException e) {
       logger.error("An error when creating");
       return;
@@ -68,7 +79,7 @@ public class VirtiusExportStatusWriter {
 
     try (
         BufferedWriter writer = Files.newBufferedWriter(
-            OUTPUT_FILE,
+            getOutputFilePath(),
             StandardOpenOption.CREATE,
             StandardOpenOption.TRUNCATE_EXISTING);
         CSVPrinter printer = new CSVPrinter(writer, CSVFormat.RFC4180.builder()
@@ -82,7 +93,7 @@ public class VirtiusExportStatusWriter {
         rowCount++;
       }
       printer.flush();
-      logger.info("Wrote {} records to {}.", rowCount, OUTPUT_FILE);
+      logger.info("Wrote {} records to {}.", rowCount, getOutputFilePath());
     } catch (IOException e) {
       logger.error("Error upserting export status CSV", e);
     }
@@ -109,13 +120,14 @@ public class VirtiusExportStatusWriter {
 
     ArrayList<VirtiusScore> virtiusScoreList = new ArrayList<>();
 
-    if (!Files.exists(OUTPUT_FILE)) {
-      logger.error("Cannot read the Virtius scores export file {} because it does not exist.", OUTPUT_FILE.toString());
+    if (!Files.exists(getOutputFilePath())) {
+      logger.error("Cannot read the Virtius scores export file {} because it does not exist.",
+          getOutputFilePath().toString());
       return virtiusScoreList;
     }
 
     try (
-        BufferedReader reader = Files.newBufferedReader(OUTPUT_FILE);
+        BufferedReader reader = Files.newBufferedReader(getOutputFilePath());
         CSVParser parser = CSVParser.parse(reader, CSVFormat.RFC4180.builder()
             .setHeader(Headers.class)
             .setSkipHeaderRecord(true)
@@ -146,7 +158,7 @@ public class VirtiusExportStatusWriter {
       }
 
     } catch (Exception e) {
-      logger.error("An error occurred when reading the Virtius score export status file {}: ", OUTPUT_FILE, e);
+      logger.error("An error occurred when reading the Virtius score export status file {}: ", getOutputFilePath(), e);
     }
 
     return virtiusScoreList;
@@ -172,7 +184,7 @@ public class VirtiusExportStatusWriter {
     for (VirtiusScore filteredSession : filteredSessions) {
       VirtiusScore fileSession = fileSessionMap.get(filteredSession.getSessionId());
       if (fileSession == null ||
-        (fileSession != null && VirtiusScore.ExportStatus.EXPORTED.equals(fileSession.getExportStatus()))) {
+          (fileSession != null && VirtiusScore.ExportStatus.EXPORTED.equals(fileSession.getExportStatus()))) {
         filteredSessions.remove(filteredSession);
       }
     }

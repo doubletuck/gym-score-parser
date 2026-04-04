@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -19,19 +20,28 @@ public class GymScoreParserApplication {
 
   private final static Logger logger = LoggerFactory.getLogger(GymScoreParserApplication.class);
 
+  @Autowired
+  private VirtiusExportStatusWriter writer;
+
+  @Autowired
+  private VirtiusMeetScoreParser scoreParser;
+
   public static void main(String[] args) {
     ConfigurableApplicationContext context = SpringApplication.run(GymScoreParserApplication.class, args);
 
+    GymScoreParserApplication app = context.getBean(GymScoreParserApplication.class);
+    app.run(context);
+  }
+
+  public void run(ConfigurableApplicationContext context) {
     VirtiusMeetSessionsParser sessionsParser = new VirtiusMeetSessionsParser();
     List<VirtiusScore> virtiusScoreList = sessionsParser.getSessionList();
     logger.info("Virtius scores found: {}", virtiusScoreList.size());
 
     LocalDateTime someDate = LocalDateTime.now().minusMonths(2);
     logger.info("Exporting meets from before {}", someDate);
-
-    VirtiusExportStatusWriter writer = new VirtiusExportStatusWriter();
     List<VirtiusScore> sessionsNeedingExport = writer.filterOutExportedSessions(virtiusScoreList, someDate);
-    VirtiusMeetScoreParser scoreParser = new VirtiusMeetScoreParser(sessionsNeedingExport);
+    scoreParser.setMeetSessionList(sessionsNeedingExport);
     scoreParser.export();
     sessionsNeedingExport = scoreParser.getMeetSessionList();
 
