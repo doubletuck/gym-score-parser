@@ -20,6 +20,7 @@ import org.slf4j.LoggerFactory;
 import com.doubletuck.model.VirtiusScore;
 
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
 
 /**
@@ -61,6 +62,13 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
       logger.info("Initiate the download of {} Virtius meet sessions.", this.meetSessionList.size());
       initializeWebDriver();
       for (VirtiusScore currentSession : meetSessionList) {
+        if (currentSession.getScoreUrl() == null || currentSession.getScoreUrl().isEmpty()) {
+          logger.warn(
+              "Cannot process the session because the scoreUrl is missing. Skipping and moving to the next item. {}",
+              currentSession);
+          continue;
+        }
+        
         logger.info("Begin extracting scores for session {}.", currentSession.getScoreUrl());
 
         String scoreText = extractScores(currentSession.getScoreUrl());
@@ -87,7 +95,7 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
     }
   }
 
-  private String extractScores(String sessionUrl) {
+  private String extractScores(@NonNull String sessionUrl) {
     String exportedText = null;
 
     try {
