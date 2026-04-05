@@ -22,20 +22,17 @@ import org.slf4j.LoggerFactory;
 
 import com.doubletuck.model.VirtiusScore;
 
+import lombok.Getter;
+
 public class ExportTrackingFileWriter {
 
   private static final Logger logger = LoggerFactory.getLogger(ExportTrackingFileWriter.class);
 
-  private final String exportDataDirectory;
-  private final String exportTrackingFilename;
+  @Getter
+  private final Path trackingFilePath;
 
-  public ExportTrackingFileWriter(String exportDataDirectory, String exportTrackingFilename) {
-    this.exportDataDirectory = exportDataDirectory;
-    this.exportTrackingFilename = exportTrackingFilename;
-  }
-
-  private Path getOutputFilePath() {
-    return Path.of(exportDataDirectory, exportTrackingFilename);
+  public ExportTrackingFileWriter(Path trackingFilePath) {
+    this.trackingFilePath = trackingFilePath;
   }
 
   private enum Headers {
@@ -70,7 +67,7 @@ public class ExportTrackingFileWriter {
 
   public void writeFile(List<VirtiusScore> sessions) {
     try {
-      Files.createDirectories(getOutputFilePath().getParent());
+      Files.createDirectories(trackingFilePath.getParent());
     } catch (IOException e) {
       logger.error("An error when creating");
       return;
@@ -78,7 +75,7 @@ public class ExportTrackingFileWriter {
 
     try (
         BufferedWriter writer = Files.newBufferedWriter(
-            getOutputFilePath(),
+            trackingFilePath,
             StandardOpenOption.CREATE,
             StandardOpenOption.TRUNCATE_EXISTING);
         CSVPrinter printer = new CSVPrinter(writer, CSVFormat.RFC4180.builder()
@@ -92,7 +89,7 @@ public class ExportTrackingFileWriter {
         rowCount++;
       }
       printer.flush();
-      logger.info("Wrote {} records to {}.", rowCount, getOutputFilePath());
+      logger.info("Wrote {} records to {}.", rowCount, trackingFilePath);
     } catch (IOException e) {
       logger.error("Error upserting export status CSV", e);
     }
@@ -119,14 +116,14 @@ public class ExportTrackingFileWriter {
 
     ArrayList<VirtiusScore> virtiusScoreList = new ArrayList<>();
 
-    if (!Files.exists(getOutputFilePath())) {
+    if (!Files.exists(trackingFilePath)) {
       logger.error("The file {} does not exist.",
-          getOutputFilePath().toString());
+          trackingFilePath.toString());
       return virtiusScoreList;
     }
 
     try (
-        BufferedReader reader = Files.newBufferedReader(getOutputFilePath());
+        BufferedReader reader = Files.newBufferedReader(trackingFilePath);
         CSVParser parser = CSVParser.parse(reader, CSVFormat.RFC4180.builder()
             .setHeader(Headers.class)
             .setSkipHeaderRecord(true)
@@ -157,7 +154,7 @@ public class ExportTrackingFileWriter {
       }
 
     } catch (Exception e) {
-      logger.error("An error occurred when reading the Virtius score export status file {}: ", getOutputFilePath(), e);
+      logger.error("An error occurred when reading the Virtius score export status file {}: ", trackingFilePath, e);
     }
 
     return virtiusScoreList;

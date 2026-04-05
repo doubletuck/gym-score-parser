@@ -1,9 +1,8 @@
 package com.doubletuck;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
-import java.util.Properties;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,36 +11,36 @@ import com.doubletuck.model.VirtiusScore;
 import com.doubletuck.parser.ExportTrackingFileWriter;
 import com.doubletuck.parser.VirtiusMeetScoreParser;
 import com.doubletuck.parser.VirtiusMeetSessionsParser;
+import com.doubletuck.utils.AppProperties;
 
 public class GymScoreParserApplication {
 
   private static final Logger logger = LoggerFactory.getLogger(GymScoreParserApplication.class);
 
-  public static void main(String[] args) throws IOException {
-    Properties props = new Properties();
-    try (InputStream in = GymScoreParserApplication.class.getClassLoader()
-        .getResourceAsStream("application.properties")) {
-      if (in != null) {
-        props.load(in);
-      }
-    }
+  public static void main(String[] args) {
+    AppProperties appProps = AppProperties.getInstance();
+    String exportDirProperty = appProps.getExportDataDirectory();
+    String exportTrackingFilenameProperty = appProps.getExportTrackingFilename();
 
-    
-    String exportDir = props.getProperty("export.data.directory", "data");
-    String exportTrackingFilename = props.getProperty("export.tracking-filename", "meet_scores_export_status.csv");
+    Path exportDirPath = Path.of(exportDirProperty);
+    if (!Files.isDirectory(exportDirPath)) {
+      logger.error("Export directory '{}' does not exist or is not a directory. Exiting export processing.", exportDirProperty);
+      return;
+    }
+    Path exportTrackingFilePath = Path.of(exportDirProperty, exportTrackingFilenameProperty);
 
     logger.info("Begin bulk export of meet scores found on Virtius.");
     VirtiusMeetSessionsParser sessionsParser = new VirtiusMeetSessionsParser();
     List<VirtiusScore> virtiusScoreList = sessionsParser.getSessionList();
     logger.info("{} sessions found on Virtius. Begin score of the sessions.", virtiusScoreList.size());
 
-    VirtiusMeetScoreParser scoreParser = new VirtiusMeetScoreParser(exportDir);
+    VirtiusMeetScoreParser scoreParser = new VirtiusMeetScoreParser(exportDirProperty);
     scoreParser.setMeetSessionList(virtiusScoreList);
     scoreParser.export();
     List<VirtiusScore> processedVirtiusScoreList = scoreParser.getMeetSessionList();
 
-    logger.info("Writing export processing information to {}.", exportTrackingFilename);
-    ExportTrackingFileWriter trackingFileWriter = new ExportTrackingFileWriter(exportDir, exportTrackingFilename);
+    logger.info("Writing export processing information to {}.", exportTrackingFilenameProperty);
+    ExportTrackingFileWriter trackingFileWriter = new ExportTrackingFileWriter(exportTrackingFilePath);
     trackingFileWriter.updateFile(processedVirtiusScoreList);
 
     logger.info("Bulk export processing is finished.");
