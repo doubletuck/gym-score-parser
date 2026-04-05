@@ -95,6 +95,7 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
     }
   }
 
+  @SuppressWarnings("null")
   private String extractScores(@NonNull String sessionUrl) {
     String exportedText = null;
 
