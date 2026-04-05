@@ -19,24 +19,23 @@ import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 import com.doubletuck.model.VirtiusScore;
 
-@Component
-public class VirtiusExportStatusWriter {
+public class ExportTrackingFileWriter {
 
-  private static final Logger logger = LoggerFactory.getLogger(VirtiusExportStatusWriter.class);
+  private static final Logger logger = LoggerFactory.getLogger(ExportTrackingFileWriter.class);
 
-  @Value("${export.data.directory}")
-  private String exportDataDirectory;
+  private final String exportDataDirectory;
+  private final String exportTrackingFilename;
 
-  @Value("${export.data.filename}")
-  private String exportDataFilename;
+  public ExportTrackingFileWriter(String exportDataDirectory, String exportTrackingFilename) {
+    this.exportDataDirectory = exportDataDirectory;
+    this.exportTrackingFilename = exportTrackingFilename;
+  }
 
   private Path getOutputFilePath() {
-    return Path.of(exportDataDirectory, exportDataFilename);
+    return Path.of(exportDataDirectory, exportTrackingFilename);
   }
 
   private enum Headers {
@@ -121,7 +120,7 @@ public class VirtiusExportStatusWriter {
     ArrayList<VirtiusScore> virtiusScoreList = new ArrayList<>();
 
     if (!Files.exists(getOutputFilePath())) {
-      logger.error("Cannot read the Virtius scores export file {} because it does not exist.",
+      logger.error("The file {} does not exist.",
           getOutputFilePath().toString());
       return virtiusScoreList;
     }
@@ -162,34 +161,6 @@ public class VirtiusExportStatusWriter {
     }
 
     return virtiusScoreList;
-  }
-
-  public List<VirtiusScore> filterOutExportedSessions(List<VirtiusScore> sessions, LocalDateTime notAfterDate) {
-
-    List<VirtiusScore> filteredSessions = new ArrayList<>();
-    if (notAfterDate != null) {
-      for (VirtiusScore session : sessions) {
-        if (session.getMeetDate().isBefore(notAfterDate)) {
-          filteredSessions.add(session);
-        }
-      }
-    }
-
-    List<VirtiusScore> fileSessions = this.readFile();
-    Map<String, VirtiusScore> fileSessionMap = new LinkedHashMap<>();
-    for (VirtiusScore session : fileSessions) {
-      fileSessionMap.put(session.getSessionId(), session);
-    }
-
-    for (VirtiusScore filteredSession : filteredSessions) {
-      VirtiusScore fileSession = fileSessionMap.get(filteredSession.getSessionId());
-      if (fileSession == null ||
-          (fileSession != null && VirtiusScore.ExportStatus.EXPORTED.equals(fileSession.getExportStatus()))) {
-        filteredSessions.remove(filteredSession);
-      }
-    }
-
-    return filteredSessions;
   }
 
   private String asNonNullString(Object value) {
