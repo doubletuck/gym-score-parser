@@ -1,0 +1,65 @@
+Round,Order,Name,Team,Event,Score,Difficulty,Execution,Neutral Deduction,Stick Bonus,Inquiry,Edited,Date,Event,SV1,SV2,J1,J2
+1,1,Clara Gilles,Hamline,VT,9.175,,,,,,,2/20/2026,Hamline vs Winona State,9.60,9.60,9.15,9.20
+1,2,Ashley Savell,Hamline,VT,9.275,,,,,,,2/20/2026,Hamline vs Winona State,9.60,9.60,9.30,9.25
+1,3,Anna Johnson,Hamline,VT,9.100,,,,,,,2/20/2026,Hamline vs Winona State,9.80,9.60,9.05,9.15
+1,4,Laurel Raymond,Hamline,VT,8.875,,,,,,,2/20/2026,Hamline vs Winona State,9.75,9.75,8.95,8.80
+1,5,Sydney Stoenner,Hamline,VT,9.450,,,,,,,2/20/2026,Hamline vs Winona State,9.80,9.80,9.45,9.45
+1,6,Elena Bailey,Hamline,VT,9.325,,,,,,,2/20/2026,Hamline vs Winona State,9.75,9.75,9.20,9.45
+1,7,Riley Hintz,Hamline,VT,8.975,,,,,,,2/20/2026,Hamline vs Winona State,9.80,9.80,8.80,9.15
+1,8,RyLe Foldhazi,Hamline,VT,9.000,,,,,,,2/20/2026,Hamline vs Winona State,9.80,9.80,9.10,8.90
+1,1,Courtney Knutson,Winona State,VT,9.325,,,,,,,2/20/2026,Hamline vs Winona State,9.80,9.80,9.30,9.35
+1,2,Madysen Diskerud,Winona State,VT,9.375,,,,,,,2/20/2026,Hamline vs Winona State,9.90,9.90,9.35,9.40
+1,3,Harper Hamilton,Winona State,VT,9.500,,,,,,,2/20/2026,Hamline vs Winona State,9.80,9.80,9.55,9.45
+1,4,Irene Kearney,Winona State,VT,9.700,,,,,,,2/20/2026,Hamline vs Winona State,9.95,9.95,9.70,9.70
+1,5,Gabby Kraft,Winona State,VT,9.450,,,,,,,2/20/2026,Hamline vs Winona State,9.80,9.80,9.45,9.45
+1,6,Frankie Jo MacAskill,Winona State,VT,9.575,,,,,,,2/20/2026,Hamline vs Winona State,9.95,9.95,9.60,9.55
+1,7,Jessica Miley,Winona State,VT,9.475,,,,,,,2/20/2026,Hamline vs Winona State,9.90,9.90,9.50,9.45
+1,8,Taylor Magierka,Winona State,VT,8.875,,,,,,,2/20/2026,Hamline vs Winona State,9.80,9.80,9.00,8.75
+2,1,Lily Ramsdell,Hamline,UB,9.000,,,,,,,2/20/2026,Hamline vs Winona State,9.70,9.70,9.10,8.90
+2,2,Ashley Savell,Hamline,UB,8.925,,,,,,,2/20/2026,Hamline vs Winona State,9.50,9.50,8.85,9.00
+2,3,Emma Witterstaetter,Hamline,UB,8.375,,,,,,,2/20/2026,Hamline vs Winona State,9.70,9.70,8.45,8.30
+2,4,Katie Chai-Mulkerin,Hamline,UB,8.350,,,,,,,2/20/2026,Hamline vs Winona State,9.90,9.60,8.50,8.20
+2,5,Carly Banta,Hamline,UB,8.300,,,,,,,2/20/2026,Hamline vs Winona State,9.40,9.40,8.30,8.30
+2,6,Clara Gilles,Hamline,UB,9.175,,,,,,,2/20/2026,Hamline vs Winona State,9.90,9.90,9.25,9.10
+2,7,Avery Hitchcock,Hamline,UB,7.075,,,,,,,2/20/2026,Hamline vs Winona State,9.60,9.60,7.05,7.10
+2,8,Caroline Guptill,Hamline,UB,8.575,,,,,,,2/20/2026,Hamline vs Winona State,9.10,9.10,8.60,8.55
+2,1,Harper Hamilton,Winona State,UB,9.325,,,,,,,2/20/2026,Hamline vs Winona State,10.00,10.00,9.30,9.35
+2,2,Maddie Reiner,Winona State,UB,9.125,,,,,,,2/20/2026,Hamline vs Winona State,9.70,9.90,9.00,9.25
+2,3,Ashley-Elizabeth Lynch,Winona State,UB,9.450,,,,,,,2/20/2026,Hamline vs Winona State,10.00,10.00,9.40,9.50
+2,4,Irene Kearney,Winona State,UB,9.300,,,,,,,2/20/2026,Hamline vs Winona State,10.00,10.00,9.20,9.40
+2,5,Kaylee Bateman,Winona State,UB,9.075,,,,,,,2/20/2026,Hamline vs Winona State,9.80,9.80,9.00,9.15
+2,6,Jessica Miley,Winona State,UB,9.525,,,,,,,2/20/2026,Hamline vs Winona State,10.00,10.00,9.50,9.55
+2,7,Ella Denno,Winona State,UB,9.075,,,,,,,2/20/2026,Hamline vs Winona State,10.00,10.00,9.15,9.00
+2,8,Ashlyn Walters,Winona State,UB,8.875,,,,,,,2/20/2026,Hamline vs Winona State,9.90,9.90,8.85,8.90
+3,1,Hannah Lemon,Hamline,BB,9.275,,,,,,,2/20/2026,Hamline vs Winona State,10.00,10.00,9.35,9.20
+3,2,Jozlynn Jansen,Hamline,BB,8.625,,,,,,,2/20/2026,Hamline vs Winona State,9.70,9.30,8.85,8.40
+3,3,Brooke Reardon,Hamline,BB,8.850,,,,,,,2/20/2026,Hamline vs Winona State,9.20,9.60,8.65,9.05
+3,4,Lizzie Green,Hamline,BB,9.350,,,,,,,2/20/2026,Hamline vs Winona State,10.00,10.00,9.35,9.35
+3,5,Carly Banta,Hamline,BB,8.925,,,,,,,2/20/2026,Hamline vs Winona State,9.80,9.80,9.05,8.80
+3,6,Kaitlyn Morgan,Hamline,BB,9.375,,,,,,,2/20/2026,Hamline vs Winona State,9.90,9.90,9.45,9.30
+3,7,RyLe Foldhazi,Hamline,BB,8.500,,,,,,,2/20/2026,Hamline vs Winona State,9.50,9.50,8.50,8.50
+3,8,Ashley Savell,Hamline,BB,8.725,,,,,,,2/20/2026,Hamline vs Winona State,9.70,9.70,8.70,8.75
+3,1,Kaelyn Duman,Winona State,BB,9.650,,,,,,,2/20/2026,Hamline vs Winona State,10.00,10.00,9.70,9.60
+3,2,Harper Hamilton,Winona State,BB,8.900,,,,,,,2/20/2026,Hamline vs Winona State,9.70,9.70,8.80,9.00
+3,3,Aspen Peters,Winona State,BB,9.600,,,,,,,2/20/2026,Hamline vs Winona State,10.00,10.00,9.50,9.70
+3,4,Frankie Jo MacAskill,Winona State,BB,9.325,,,,,,,2/20/2026,Hamline vs Winona State,9.90,9.90,9.30,9.35
+3,5,Kaylee Bateman,Winona State,BB,9.475,,,,,,,2/20/2026,Hamline vs Winona State,10.00,10.00,9.55,9.40
+3,6,Gabby Kraft,Winona State,BB,9.575,,,,,,,2/20/2026,Hamline vs Winona State,10.00,10.00,9.55,9.60
+3,7,Irene Kearney,Winona State,BB,8.975,,,,,,,2/20/2026,Hamline vs Winona State,9.50,9.50,9.05,8.90
+3,8,Liana Tine,Winona State,BB,9.150,,,,,,,2/20/2026,Hamline vs Winona State,10.00,10.00,9.10,9.20
+4,1,Catelyn Zack,Hamline,FX,9.300,,,,,,,2/20/2026,Hamline vs Winona State,10.00,9.90,9.30,9.30
+4,2,Cailey Price,Hamline,FX,9.250,,,,,,,2/20/2026,Hamline vs Winona State,9.80,9.90,9.30,9.20
+4,3,Anna Johnson,Hamline,FX,9.450,,,,,,,2/20/2026,Hamline vs Winona State,10.00,10.00,9.45,9.45
+4,4,Lizzie Green,Hamline,FX,8.825,,,0.1,,,,2/20/2026,Hamline vs Winona State,9.60,9.60,8.95,8.90
+4,5,Sydney Stoenner,Hamline,FX,9.125,,,,,,,2/20/2026,Hamline vs Winona State,10.00,10.00,9.00,9.25
+4,6,Carly Banta,Hamline,FX,9.500,,,,,,Y,2/20/2026,Hamline vs Winona State,10.00,10.00,9.55,9.45
+4,7,Annelise Smaby,Hamline,FX,9.125,,,,,,,2/20/2026,Hamline vs Winona State,10.00,10.00,9.15,9.10
+4,8,Shea Campbell,Hamline,FX,8.950,,,0.1,,,,2/20/2026,Hamline vs Winona State,9.80,9.90,9.20,8.90
+4,1,Courtney Knutson,Winona State,FX,9.525,,,,,,,2/20/2026,Hamline vs Winona State,10.00,10.00,9.55,9.50
+4,2,Lynley Welshenbaugh,Winona State,FX,9.675,,,,,,,2/20/2026,Hamline vs Winona State,10.00,10.00,9.60,9.75
+4,3,Jessica Miley,Winona State,FX,9.525,,,0.1,,,,2/20/2026,Hamline vs Winona State,10.00,10.00,9.70,9.55
+4,4,Taylor Magierka,Winona State,FX,9.750,,,,,,,2/20/2026,Hamline vs Winona State,10.00,10.00,9.65,9.85
+4,5,Gabby Kraft,Winona State,FX,9.775,,,0.1,,,,2/20/2026,Hamline vs Winona State,10.00,10.00,9.85,9.90
+4,6,Frankie Jo MacAskill,Winona State,FX,9.775,,,,,,,2/20/2026,Hamline vs Winona State,10.00,10.00,9.75,9.80
+4,7,Sienna Heizer,Winona State,FX,9.350,,,,,,,2/20/2026,Hamline vs Winona State,10.00,9.90,9.50,9.20
+4,8,Rachel Van Namen,Winona State,FX,9.200,,,0.2,,,,2/20/2026,Hamline vs Winona State,9.90,9.90,9.40,9.40

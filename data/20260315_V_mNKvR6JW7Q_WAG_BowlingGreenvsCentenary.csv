@@ -1,0 +1,53 @@
+Round,Order,Name,Team,Event,Score,Difficulty,Execution,Neutral Deduction,Stick Bonus,Inquiry,Edited,Date,Event,SV1,SV2,J1,J2
+1,1,Keira Thornton,Bowling Green,VT,9.675,,,,,,,3/15/2026,Bowling Green vs Centenary,9.95,9.95,9.65,9.70
+1,2,Emily Gianfrancesco,Bowling Green,VT,9.475,,,,,,,3/15/2026,Bowling Green vs Centenary,9.95,9.95,9.55,9.40
+1,3,Madison Coburn,Bowling Green,VT,9.750,,,,,,,3/15/2026,Bowling Green vs Centenary,9.95,9.95,9.75,9.75
+1,4,Megan Dzialo,Bowling Green,VT,9.625,,,,,,,3/15/2026,Bowling Green vs Centenary,9.95,9.95,9.65,9.60
+1,5,Teegan Milligan,Bowling Green,VT,9.525,,,,,,,3/15/2026,Bowling Green vs Centenary,9.95,9.95,9.50,9.55
+1,6,Landyn Williams,Bowling Green,VT,8.900,,,,,,,3/15/2026,Bowling Green vs Centenary,9.90,9.90,8.90,8.90
+1,7,Natasha Lopez,Bowling Green,VT,9.575,,,,,,,3/15/2026,Bowling Green vs Centenary,9.95,9.95,9.65,9.50
+1,1,Peyton Burford,Centenary,VT,9.525,,,,,,,3/15/2026,Bowling Green vs Centenary,9.75,9.75,9.50,9.55
+1,2,Olivia Stratmann,Centenary,VT,9.300,,,,,,,3/15/2026,Bowling Green vs Centenary,9.95,9.95,9.30,9.30
+1,3,Amy Foret,Centenary,VT,9.525,,,,,,,3/15/2026,Bowling Green vs Centenary,9.75,9.75,9.50,9.55
+1,4,Olivia Montgomery,Centenary,VT,9.475,,,,,,,3/15/2026,Bowling Green vs Centenary,9.80,9.80,9.50,9.45
+1,5,Anna Ichiba,Centenary,VT,9.375,,,,,,,3/15/2026,Bowling Green vs Centenary,9.75,9.75,9.40,9.35
+1,6,Claire Flores,Centenary,VT,9.450,,,,,,,3/15/2026,Bowling Green vs Centenary,9.90,9.90,9.45,9.45
+2,1,Megan Dzialo,Bowling Green,UB,9.600,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.65,9.55
+2,2,Natasha Lopez,Bowling Green,UB,9.625,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.70,9.55
+2,3,Addie Tandeski,Bowling Green,UB,9.375,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.45,9.30
+2,4,Kayla Shaw,Bowling Green,UB,9.700,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.70,9.70
+2,5,Keira Thornton,Bowling Green,UB,9.750,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.70,9.80
+2,6,Nadia Parente,Bowling Green,UB,9.775,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.80,9.75
+2,7,Teegan Milligan,Bowling Green,UB,9.750,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.80,9.70
+2,1,Erin Pinder,Centenary,UB,9.575,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.55,9.60
+2,2,Olivia Stratmann,Centenary,UB,8.850,,,,,,,3/15/2026,Bowling Green vs Centenary,9.70,9.70,8.90,8.80
+2,3,Nyah Washington,Centenary,UB,8.300,,,,,Y,,3/15/2026,Bowling Green vs Centenary,9.60,9.60,8.20,8.40
+2,4,Lelia Dunlavy,Centenary,UB,9.500,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,9.90,9.50,9.50
+2,5,Claire Flores,Centenary,UB,9.450,,,,,,,3/15/2026,Bowling Green vs Centenary,9.90,9.90,9.50,9.40
+3,1,Faye Dubin,Bowling Green,BB,9.825,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.80,9.85
+3,2,Natasha Lopez,Bowling Green,BB,8.975,,,,,,,3/15/2026,Bowling Green vs Centenary,9.90,9.90,8.90,9.05
+3,3,Madison Coburn,Bowling Green,BB,8.450,,,,,,,3/15/2026,Bowling Green vs Centenary,9.70,9.70,8.40,8.50
+3,4,Emily Gianfrancesco,Bowling Green,BB,9.700,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.70,9.70
+3,5,Kayla Shaw,Bowling Green,BB,9.850,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.85,9.85
+3,6,Megan Dzialo,Bowling Green,BB,9.725,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.65,9.80
+3,7,Cassie Bergin,Bowling Green,BB,9.525,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.55,9.50
+3,1,Amy Foret,Centenary,BB,9.025,,,,,,,3/15/2026,Bowling Green vs Centenary,9.80,9.80,9.05,9.00
+3,2,Riley Navarro,Centenary,BB,9.575,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.60,9.55
+3,3,Skyla Cruz,Centenary,BB,8.925,,,,,,,3/15/2026,Bowling Green vs Centenary,9.70,9.70,8.90,8.95
+3,4,Hayden Cagle,Centenary,BB,9.550,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.55,9.55
+3,5,Chloe Gilbert,Centenary,BB,9.550,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.45,9.65
+3,6,Anna Ichiba,Centenary,BB,9.725,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.75,9.70
+3,7,Peyton Burford,Centenary,BB,9.425,,,,,,,3/15/2026,Bowling Green vs Centenary,9.90,10.00,9.35,9.50
+4,1,Emily Gianfrancesco,Bowling Green,FX,9.700,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.70,9.70
+4,2,Nadia Parente,Bowling Green,FX,9.825,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.85,9.80
+4,3,Madison Coburn,Bowling Green,FX,9.625,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.60,9.65
+4,4,Megan Dzialo,Bowling Green,FX,9.850,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.85,9.85
+4,5,Keira Thornton,Bowling Green,FX,9.750,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.75,9.75
+4,6,Kayla Shaw,Bowling Green,FX,9.875,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.90,9.85
+4,7,Landyn Williams,Bowling Green,FX,9.700,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.75,9.65
+4,1,Brooke Murdock,Centenary,FX,9.575,,,,,,,3/15/2026,Bowling Green vs Centenary,9.90,9.90,9.60,9.55
+4,2,Lelia Dunlavy,Centenary,FX,8.725,,,,,,,3/15/2026,Bowling Green vs Centenary,9.90,9.90,8.70,8.75
+4,3,Peyton Burford,Centenary,FX,9.500,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.40,9.60
+4,4,Claire Flores,Centenary,FX,9.625,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.65,9.60
+4,5,Amy Foret,Centenary,FX,9.800,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.80,9.80
+4,6,Olivia Williams,Centenary,FX,9.800,,,,,,,3/15/2026,Bowling Green vs Centenary,10.00,10.00,9.85,9.75

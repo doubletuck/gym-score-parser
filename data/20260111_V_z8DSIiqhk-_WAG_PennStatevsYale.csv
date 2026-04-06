@@ -1,0 +1,60 @@
+Round,Order,Name,Team,Event,Score,Difficulty,Execution,Neutral Deduction,Stick Bonus,Inquiry,Edited,Date,Event,SV1,SV2,J1,J2
+1,1,Elizabeth Leary,Penn State,VT,9.750,,,,,,,1/11/2026,Penn State vs Yale,9.95,9.95,9.75,9.75
+1,2,Ava Cash,Penn State,VT,9.850,,,,,,,1/11/2026,Penn State vs Yale,9.95,9.95,9.80,9.90
+1,3,Allison Kaempfer,Penn State,VT,9.825,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.85,9.80
+1,4,Jessica Johanson,Penn State,VT,9.800,,,,,,,1/11/2026,Penn State vs Yale,9.95,9.95,9.85,9.75
+1,5,Dani Latronica,Penn State,VT,9.750,,,,,,,1/11/2026,Penn State vs Yale,9.95,9.95,9.75,9.75
+1,6,Ava Piedrahita,Penn State,VT,9.775,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.75,9.80
+1,7,Bella Misiura,Penn State,VT,9.650,,,,,,,1/11/2026,Penn State vs Yale,9.95,9.95,9.65,9.65
+1,8,Ellie Monahan,Penn State,VT,9.700,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.75,9.65
+1,1,Lily Aucoin,Yale,VT,9.600,,,,,,,1/11/2026,Penn State vs Yale,9.95,9.95,9.60,9.60
+1,2,Meredith Donovan,Yale,VT,9.525,,,,,,,1/11/2026,Penn State vs Yale,9.90,9.90,9.50,9.55
+1,3,Annie Bilbe,Yale,VT,9.675,,,,,,,1/11/2026,Penn State vs Yale,9.90,9.90,9.65,9.70
+1,4,Ella Tashjian,Yale,VT,9.700,,,,,,,1/11/2026,Penn State vs Yale,9.95,9.95,9.70,9.70
+1,5,Gigi Sabatini,Yale,VT,9.675,,,,,,,1/11/2026,Penn State vs Yale,9.95,9.95,9.60,9.75
+1,6,Lauren Burt,Yale,VT,9.700,,,,,,,1/11/2026,Penn State vs Yale,9.95,9.95,9.75,9.65
+1,7,Ellie Kearns,Yale,VT,9.500,,,,,,,1/11/2026,Penn State vs Yale,9.90,9.90,9.50,9.50
+2,1,Ellie Monahan,Penn State,UB,9.775,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.80,9.75
+2,2,Jessica Johanson,Penn State,UB,9.750,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.70,9.80
+2,3,Allison Kaempfer,Penn State,UB,9.825,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.85,9.80
+2,4,Elizabeth Leary,Penn State,UB,9.850,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.85,9.85
+2,5,Ava Cash,Penn State,UB,9.850,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.90,9.80
+2,6,Dani Latronica,Penn State,UB,9.825,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.80,9.85
+2,7,Kalea McElligott,Penn State,UB,8.200,,,,,,,1/11/2026,Penn State vs Yale,9.40,9.50,8.20,8.20
+2,8,Ava Piedrahita,Penn State,UB,9.450,,,,,,,1/11/2026,Penn State vs Yale,9.80,9.70,9.55,9.35
+2,1,Lauren Holt,Yale,UB,9.650,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.60,9.70
+2,2,Gigi Sabatini,Yale,UB,9.700,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.75,9.65
+2,3,Lily Aucoin,Yale,UB,9.700,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.65,9.75
+2,4,Charlotte Zaun,Yale,UB,9.725,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.75,9.70
+2,5,Ellie Kearns,Yale,UB,9.675,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.70,9.65
+2,6,Chloe DeJoy,Yale,UB,9.775,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.75,9.80
+3,1,Ellie Monahan,Penn State,BB,9.825,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.85,9.80
+3,2,Alyssa Kramer,Penn State,BB,9.775,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.75,9.80
+3,3,Ashley Maul,Penn State,BB,9.775,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.75,9.80
+3,4,Kalea McElligott,Penn State,BB,9.750,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.80,9.70
+3,5,Amani Herring,Penn State,BB,9.725,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.70,9.75
+3,6,Dani Latronica,Penn State,BB,9.825,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.80,9.85
+3,7,Elizabeth Leary,Penn State,BB,9.775,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.85,9.70
+3,8,Ava Cash,Penn State,BB,9.525,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.55,9.50
+3,1,Hailey Kriz,Yale,BB,9.725,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.75,9.70
+3,2,Ellie Kearns,Yale,BB,9.750,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.70,9.80
+3,3,Gigi Sabatini,Yale,BB,9.725,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.75,9.70
+3,4,Charlotte Zaun,Yale,BB,9.175,,,,,,,1/11/2026,Penn State vs Yale,10.00,9.90,9.20,9.15
+3,5,Hana Strause,Yale,BB,9.775,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.80,9.75
+3,6,Allie Forbes,Yale,BB,8.750,,,,,,,1/11/2026,Penn State vs Yale,9.50,9.50,8.70,8.80
+3,7,Megan Brueck,Yale,BB,9.800,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.80,9.80
+3,8,Chloe DeJoy,Yale,BB,9.700,,,,,Y,,1/11/2026,Penn State vs Yale,10.00,10.00,9.65,9.75
+4,1,Elizabeth Leary,Penn State,FX,9.650,,,0.1,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.70,9.80
+4,2,Ellie Monahan,Penn State,FX,9.800,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.80,9.80
+4,3,Ashley Maul,Penn State,FX,9.800,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.75,9.85
+4,4,Bella Misiura,Penn State,FX,9.775,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.85,9.70
+4,5,Alyssa Kramer,Penn State,FX,9.875,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.90,9.85
+4,6,Kalea McElligott,Penn State,FX,9.900,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.90,9.90
+4,7,Allison Kaempfer,Penn State,FX,9.750,,,,,,Y,1/11/2026,Penn State vs Yale,10.00,10.00,9.70,9.80
+4,1,Hana Strause,Yale,FX,9.750,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.70,9.80
+4,2,Megan Brueck,Yale,FX,9.725,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.70,9.75
+4,3,Lauren Burt,Yale,FX,9.750,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.75,9.75
+4,4,Gigi Sabatini,Yale,FX,9.700,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.70,9.70
+4,5,Chloe DeJoy,Yale,FX,9.750,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.75,9.75
+4,6,Ella Tashjian,Yale,FX,9.800,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.80,9.80
+4,7,Annie Bilbe,Yale,FX,9.825,,,,,,,1/11/2026,Penn State vs Yale,10.00,10.00,9.85,9.80
