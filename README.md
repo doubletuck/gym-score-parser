@@ -7,12 +7,12 @@ Fetches and parses web pages to extract NCAA gymnastics scores.
 Build first, then run the fat JAR:
 ```shell
 mvn clean package
-java -jar target/gym-score-parser-1.0.0.jar
+java -jar target/gym-score-parser.jar
 ```
 
 Or run in the background:
 ```shell
-java -jar target/gym-score-parser-1.0.0.jar > logs/application.log 2>&1 &
+java -jar target/gym-score-parser.jar > logs/application.log 2>&1 &
 ```
 
 > **Note:** The export directory specified in `application.properties` (`export.data.directory`) must exist before running.
