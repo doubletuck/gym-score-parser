@@ -1,0 +1,136 @@
+Round,Order,Name,Team,Event,Score,Difficulty,Execution,Neutral Deduction,Stick Bonus,Inquiry,Edited,Date,Event,D,E1,E2
+1,1,Albert Chagnon,Quebec,FX,11.800,4.1,7.700,,,,,3/14/2026,Stanford Senior Night Quad,4.1,2.4,2.2
+1,2,Dominic Allaire,Quebec,FX,13.050,4.6,8.350,,0.1,,,3/14/2026,Stanford Senior Night Quad,4.6,1.5,1.8
+1,3,Nathan Yvers,Quebec,FX,13.500,4.7,8.800,,,,,3/14/2026,Stanford Senior Night Quad,4.7,1.2,1.2
+1,4,Benoît Tremblay,Quebec,FX,13.050,4.7,8.350,,,,,3/14/2026,Stanford Senior Night Quad,4.7,1.8,1.5
+1,1,JD Ehinger,California,FX,14.150,4.7,9.350,,0.1,,,3/14/2026,Stanford Senior Night Quad,4.7,0.7,0.6
+1,2,Will Horenziak,California,FX,13.550,4.7,8.850,,,,,3/14/2026,Stanford Senior Night Quad,4.7,1.1,1.2
+1,3,Evan Wenstad,California,FX,13.900,4.7,9.200,,,,,3/14/2026,Stanford Senior Night Quad,4.7,0.8,0.8
+1,4,Kaien Orion,California,FX,13.600,4.9,8.600,,0.1,,,3/14/2026,Stanford Senior Night Quad,4.9,1.3,1.5
+1,5,Matteo Bardana,California,FX,14.200,4.9,9.300,,,,,3/14/2026,Stanford Senior Night Quad,4.9,0.6,0.8
+1,1,Alex Kob,Air Force,FX,11.850,4.9,6.950,,,,,3/14/2026,Stanford Senior Night Quad,4.9,3.1,3.0
+1,2,Tai Gopaul,Air Force,FX,13.350,4.6,8.750,,,,,3/14/2026,Stanford Senior Night Quad,4.6,1.2,1.3
+1,3,Jared Fry,Air Force,FX,12.700,4.8,7.900,,,,,3/14/2026,Stanford Senior Night Quad,4.8,2.2,2.0
+1,4,Isaac Koo,Air Force,FX,13.400,5.0,8.700,0.4,0.1,,,3/14/2026,Stanford Senior Night Quad,5.0,1.5,1.1
+1,1,Leo Saladino,France,FX,13.500,4.8,8.700,,,,,3/14/2026,Stanford Senior Night Quad,4.8,1.2,1.4
+1,2,Anthony Mansard,France,FX,13.450,4.9,8.550,,,,,3/14/2026,Stanford Senior Night Quad,4.9,1.3,1.6
+1,3,Enea Fouchand,France,FX,13.300,5.2,8.100,,,,,3/14/2026,Stanford Senior Night Quad,5.2,1.8,2.0
+1,4,Nicolas Diez,France,FX,13.800,5.1,8.700,,,,,3/14/2026,Stanford Senior Night Quad,5.1,1.3,1.3
+1,5,Nael Sakouhi,France,FX,13.600,4.9,8.700,,,,,3/14/2026,Stanford Senior Night Quad,4.9,1.2,1.4
+1,6,Swaimy Bellil,France,FX,14.200,4.8,9.300,,0.1,,,3/14/2026,Stanford Senior Night Quad,4.8,0.7,0.7
+1,1,Kai Uemura,Stanford,FX,12.450,4.9,7.550,,,,Y,3/14/2026,Stanford Senior Night Quad,4.9,2.4,2.5
+1,2,Cooper Kim,Stanford,FX,14.200,5.2,9.000,,,,,3/14/2026,Stanford Senior Night Quad,5.2,0.9,1.1
+1,3,Nick Kuebler,Stanford,FX,14.200,5.1,9.000,,0.1,,,3/14/2026,Stanford Senior Night Quad,5.1,1.1,0.9
+1,4,Junnosuke Iwai,Stanford,FX,14.700,5.6,9.100,,,,Y,3/14/2026,Stanford Senior Night Quad,5.6,0.8,1.0
+2,1,Albert Chagnon,Quebec,PH,10.250,2.8,7.450,,,,,3/14/2026,Stanford Senior Night Quad,2.8,2.8,2.3
+2,2,Benoît Tremblay,Quebec,PH,11.500,5.0,6.500,,,,,3/14/2026,Stanford Senior Night Quad,5.0,3.7,3.3
+2,3,Dominic Allaire,Quebec,PH,12.350,4.5,7.850,,,,,3/14/2026,Stanford Senior Night Quad,4.5,2.3,2.0
+2,4,Aidan Li,Quebec,PH,13.200,5.7,7.500,,,,,3/14/2026,Stanford Senior Night Quad,5.7,2.8,2.2
+2,1,Davide Comparin,California,PH,12.850,4.9,7.950,,,,,3/14/2026,Stanford Senior Night Quad,4.9,2.0,2.1
+2,2,Harry Kim,California,PH,12.550,4.7,7.850,,,,,3/14/2026,Stanford Senior Night Quad,4.7,2.4,1.9
+2,3,Kaien Orion,California,PH,11.150,4.4,6.750,,,,,3/14/2026,Stanford Senior Night Quad,4.4,3.4,3.1
+2,4,Jasper Smith-Gordon,California,PH,12.800,5.2,7.600,,,,Y,3/14/2026,Stanford Senior Night Quad,5.2,2.3,2.5
+2,5,Matteo Bardana,California,PH,11.850,3.6,8.250,,,,,3/14/2026,Stanford Senior Night Quad,3.6,1.8,1.7
+2,1,Ryan Jacobson,Air Force,PH,12.650,4.4,8.250,,,,,3/14/2026,Stanford Senior Night Quad,4.4,1.7,1.8
+2,2,John Hults,Air Force,PH,11.350,4.7,6.650,,,,,3/14/2026,Stanford Senior Night Quad,4.7,3.4,3.3
+2,3,Jack Matlock,Air Force,PH,13.650,5.2,8.450,,,,,3/14/2026,Stanford Senior Night Quad,5.2,1.8,1.3
+2,4,Sam Brown,Air Force,PH,13.700,5.1,8.600,,,,,3/14/2026,Stanford Senior Night Quad,5.1,1.6,1.2
+2,1,Pierre Caddam Cheni,France,PH,12.300,5.6,6.700,,,,,3/14/2026,Stanford Senior Night Quad,5.6,3.5,3.1
+2,2,Nael Sakouhi,France,PH,11.950,4.9,7.050,,,,,3/14/2026,Stanford Senior Night Quad,4.9,2.6,3.3
+2,3,Elias Breche,France,PH,11.350,5.4,5.950,,,,,3/14/2026,Stanford Senior Night Quad,5.4,4.0,4.1
+2,4,Leeroy Traore-Malatre,France,PH,12.500,6.0,6.500,,,,,3/14/2026,Stanford Senior Night Quad,6.0,3.8,3.2
+2,5,Alphonse Burball,France,PH,11.100,4.5,6.600,,,,,3/14/2026,Stanford Senior Night Quad,4.5,3.1,3.7
+2,6,Julien Marechal,France,PH,12.100,4.8,7.300,,,,,3/14/2026,Stanford Senior Night Quad,4.8,2.4,3.0
+2,1,Asher Hong,Stanford,PH,10.850,5.0,5.850,,,,,3/14/2026,Stanford Senior Night Quad,5.0,4.4,3.9
+2,2,Arun Chhetri,Stanford,PH,12.000,5.2,6.800,,,,,3/14/2026,Stanford Senior Night Quad,5.2,3.2,3.2
+2,3,David Shamah,Stanford,PH,12.750,5.1,7.650,,,,,3/14/2026,Stanford Senior Night Quad,5.1,2.3,2.4
+2,4,Kiran Mandava,Stanford,PH,11.700,5.4,6.300,,,,,3/14/2026,Stanford Senior Night Quad,5.4,4.0,3.4
+2,6,Marcus Kushner,Stanford,PH,13.300,4.8,8.500,,,,,3/14/2026,Stanford Senior Night Quad,4.8,1.6,1.4
+3,1,Dominic Allaire,Quebec,SR,11.450,2.9,8.450,,0.1,,,3/14/2026,Stanford Senior Night Quad,2.9,1.7,1.4
+3,2,Albert Chagnon,Quebec,SR,11.250,3.2,8.050,,,,,3/14/2026,Stanford Senior Night Quad,3.2,2.1,1.8
+3,3,Nathan Yvers,Quebec,SR,12.100,3.6,8.500,,,,,3/14/2026,Stanford Senior Night Quad,3.6,1.5,1.5
+3,4,Benoît Tremblay,Quebec,SR,12.150,4.1,8.050,,,,,3/14/2026,Stanford Senior Night Quad,4.1,2.1,1.8
+3,1,Troy Nuesca,California,SR,12.800,3.7,9.000,,0.1,,,3/14/2026,Stanford Senior Night Quad,3.7,1.0,1.0
+3,2,Nathan Underhill,California,SR,13.150,4.4,8.650,,0.1,,,3/14/2026,Stanford Senior Night Quad,4.4,1.4,1.3
+3,3,Jaxon Mitchell,California,SR,12.800,4.9,7.900,,,,,3/14/2026,Stanford Senior Night Quad,4.9,2.0,2.2
+3,4,Matteo Bardana,California,SR,13.000,4.3,8.600,,0.1,,,3/14/2026,Stanford Senior Night Quad,4.3,1.5,1.3
+3,1,Ryan Jacobson,Air Force,SR,12.650,3.9,8.650,,0.1,,,3/14/2026,Stanford Senior Night Quad,3.9,1.4,1.3
+3,2,John Hults,Air Force,SR,12.250,3.3,8.850,,0.1,,,3/14/2026,Stanford Senior Night Quad,3.3,1.3,1.0
+3,3,Tai Gopaul,Air Force,SR,12.000,4.2,7.800,,,,,3/14/2026,Stanford Senior Night Quad,4.2,2.4,2.0
+3,4,Jack Foltyn,Air Force,SR,11.950,4.3,7.650,,,,,3/14/2026,Stanford Senior Night Quad,4.3,2.5,2.2
+3,1,Pierre Caddam Cheni,France,SR,12.450,4.4,7.950,,0.1,,,3/14/2026,Stanford Senior Night Quad,4.4,2.2,1.9
+3,2,Anthony Mansard,France,SR,12.350,4.0,8.250,,0.1,,,3/14/2026,Stanford Senior Night Quad,4.0,1.9,1.6
+3,3,Swaimy Bellil,France,SR,11.950,4.7,7.250,,,,,3/14/2026,Stanford Senior Night Quad,4.7,2.7,2.8
+3,4,Nael Sakouhi,France,SR,12.300,4.9,7.400,,,,,3/14/2026,Stanford Senior Night Quad,4.9,2.7,2.5
+3,5,Nicolas Diez,France,SR,11.550,4.1,7.450,,,,,3/14/2026,Stanford Senior Night Quad,4.1,2.6,2.5
+3,6,Alphonse Burball,France,SR,11.800,4.0,7.800,,,,,3/14/2026,Stanford Senior Night Quad,4.0,2.2,2.2
+3,1,Arun Chhetri,Stanford,SR,13.050,4.8,8.150,,0.1,,,3/14/2026,Stanford Senior Night Quad,4.8,1.9,1.8
+3,2,Reece Landsperger,Stanford,SR,13.450,5.1,8.350,,,,,3/14/2026,Stanford Senior Night Quad,5.1,1.6,1.7
+3,3,Nick Kuebler,Stanford,SR,13.250,5.1,8.150,,,,,3/14/2026,Stanford Senior Night Quad,5.1,2.0,1.7
+3,4,Asher Hong,Stanford,SR,14.050,5.3,8.650,,0.1,,,3/14/2026,Stanford Senior Night Quad,5.3,1.3,1.4
+4,1,Dominic Allaire,Quebec,VT,12.350,3.6,8.750,,,,,3/14/2026,Stanford Senior Night Quad,3.6,1.3,1.2
+4,2,Albert Chagnon,Quebec,VT,12.400,3.6,8.800,,,,,3/14/2026,Stanford Senior Night Quad,3.6,1.2,1.2
+4,3,Nathan Yvers,Quebec,VT,13.500,4.4,9.100,,,,Y,3/14/2026,Stanford Senior Night Quad,4.4,0.9,0.9
+4,4,Benoît Tremblay,Quebec,VT,12.600,4.8,7.800,,,,,3/14/2026,Stanford Senior Night Quad,4.8,2.3,2.1
+4,1,Harry Kim,California,VT,12.050,4.4,7.950,0.3,,,,3/14/2026,Stanford Senior Night Quad,4.4,1.9,2.2
+4,2,Nathan Underhill,California,VT,14.350,4.8,9.550,,,,,3/14/2026,Stanford Senior Night Quad,4.8,0.4,0.5
+4,3,Jasper Smith-Gordon,California,VT,14.300,5.2,9.100,,,,,3/14/2026,Stanford Senior Night Quad,5.2,0.8,1.0
+4,4,Matteo Bardana,California,VT,12.550,4.4,8.450,0.3,,,,3/14/2026,Stanford Senior Night Quad,4.4,1.5,1.6
+4,1,Alex Kob,Air Force,VT,13.500,4.4,9.100,,,,,3/14/2026,Stanford Senior Night Quad,4.4,0.9,0.9
+4,2,Jared Fry,Air Force,VT,13.800,4.4,9.300,,0.1,,Y,3/14/2026,Stanford Senior Night Quad,4.4,0.7,0.7
+4,3,Jack Foltyn,Air Force,VT,13.000,4.4,8.900,0.3,,,,3/14/2026,Stanford Senior Night Quad,4.4,1.1,1.1
+4,4,Isaac Koo,Air Force,VT,13.500,4.4,9.100,,,,,3/14/2026,Stanford Senior Night Quad,4.4,1.0,0.8
+4,1,Leo Saladino,France,VT,13.650,4.8,8.950,0.1,,,,3/14/2026,Stanford Senior Night Quad,4.8,1.0,1.1
+4,2,Anthony Mansard,France,VT,12.950,4.8,8.150,,,,,3/14/2026,Stanford Senior Night Quad,4.8,1.9,1.8
+4,3,Nael Sakouhi,France,VT,14.350,4.8,9.550,,,,,3/14/2026,Stanford Senior Night Quad,4.8,0.4,0.5
+4,4,Leeroy Traore-Malatre,France,VT,13.850,4.8,9.050,,,,,3/14/2026,Stanford Senior Night Quad,4.8,0.9,1.0
+4,5,Nicolas Diez,France,VT,12.750,4.8,8.250,0.3,,,,3/14/2026,Stanford Senior Night Quad,4.8,1.8,1.7
+4,6,Swaimy Bellil,France,VT,14.050,4.8,9.250,,,,,3/14/2026,Stanford Senior Night Quad,4.8,0.8,0.7
+4,1,Wade Nelson,Stanford,VT,13.650,4.8,8.950,0.1,,,,3/14/2026,Stanford Senior Night Quad,4.8,1.1,1.0
+4,2,Toma Murakawa,Stanford,VT,14.350,4.8,9.550,,,,,3/14/2026,Stanford Senior Night Quad,4.8,0.4,0.5
+4,3,Cooper Kim,Stanford,VT,14.350,4.8,9.550,,,,,3/14/2026,Stanford Senior Night Quad,4.8,0.5,0.4
+4,4,Junnosuke Iwai,Stanford,VT,14.300,4.8,9.500,,,,,3/14/2026,Stanford Senior Night Quad,4.8,0.5,0.5
+5,1,Dominic Allaire,Quebec,PB,9.650,3.9,5.750,,,,,3/14/2026,Stanford Senior Night Quad,3.9,4.7,3.8
+5,2,Albert Chagnon,Quebec,PB,11.550,3.7,7.850,,,,,3/14/2026,Stanford Senior Night Quad,3.7,2.1,2.2
+5,3,Nathan Yvers,Quebec,PB,11.650,3.9,7.750,,,,,3/14/2026,Stanford Senior Night Quad,3.9,2.5,2.0
+5,4,Benoît Tremblay,Quebec,PB,13.050,4.4,8.650,,,,,3/14/2026,Stanford Senior Night Quad,4.4,1.3,1.4
+5,1,Evan Wenstad,California,PB,12.700,4.1,8.600,,,,,3/14/2026,Stanford Senior Night Quad,4.1,1.5,1.3
+5,2,Tucker Yasunaga,California,PB,12.550,4.6,7.950,,,,,3/14/2026,Stanford Senior Night Quad,4.6,2.1,2.0
+5,3,Matteo Bardana,California,PB,12.950,4.5,8.450,,,,,3/14/2026,Stanford Senior Night Quad,4.5,1.8,1.3
+5,4,Kaien Orion,California,PB,11.400,4.5,6.900,,,,,3/14/2026,Stanford Senior Night Quad,4.5,3.5,2.7
+5,1,Tai Gopaul,Air Force,PB,12.850,4.3,8.550,,,,,3/14/2026,Stanford Senior Night Quad,4.3,1.4,1.5
+5,2,Isaac Koo,Air Force,PB,12.700,4.4,8.300,,,,,3/14/2026,Stanford Senior Night Quad,4.4,1.7,1.7
+5,3,Palmer Wright,Air Force,PB,13.150,4.4,8.750,,,,,3/14/2026,Stanford Senior Night Quad,4.4,1.2,1.3
+5,4,Jack Foltyn,Air Force,PB,13.400,4.6,8.800,,,,,3/14/2026,Stanford Senior Night Quad,4.6,1.2,1.2
+5,1,Julien Marechal,France,PB,10.500,4.6,5.900,,,,,3/14/2026,Stanford Senior Night Quad,4.6,4.4,3.8
+5,2,Leeroy Traore-Malatre,France,PB,13.350,5.0,8.350,,,,,3/14/2026,Stanford Senior Night Quad,5.0,1.8,1.5
+5,3,Anthony Mansard,France,PB,12.100,4.7,7.300,,0.1,,,3/14/2026,Stanford Senior Night Quad,4.7,2.8,2.6
+5,4,Kevin Carvalho,France,PB,13.350,5.1,8.250,,,,,3/14/2026,Stanford Senior Night Quad,5.1,1.9,1.6
+5,5,Leo Saladino,France,PB,14.050,5.3,8.650,,0.1,,,3/14/2026,Stanford Senior Night Quad,5.3,1.5,1.2
+5,6,Elias Breche,France,PB,10.450,4.7,5.750,,,,,3/14/2026,Stanford Senior Night Quad,4.7,4.5,4.0
+5,1,Arun Chhetri,Stanford,PB,13.850,5.3,8.550,,,,,3/14/2026,Stanford Senior Night Quad,5.3,1.7,1.2
+5,2,Zachary Green,Stanford,PB,13.800,5.2,8.600,,,,,3/14/2026,Stanford Senior Night Quad,5.2,1.4,1.4
+5,3,Asher Hong,Stanford,PB,14.250,5.0,9.150,,0.1,,,3/14/2026,Stanford Senior Night Quad,5.0,0.9,0.8
+5,4,David Shamah,Stanford,PB,14.300,5.5,8.800,,,,Y,3/14/2026,Stanford Senior Night Quad,5.5,1.2,1.2
+6,1,Dominic Allaire,Quebec,HB,9.900,3.3,6.600,,,,,3/14/2026,Stanford Senior Night Quad,3.3,3.6,3.2
+6,2,Albert Chagnon,Quebec,HB,11.200,4.5,6.700,,,,,3/14/2026,Stanford Senior Night Quad,4.5,3.3,3.3
+6,3,Benoît Tremblay,Quebec,HB,12.100,4.4,7.700,,,,,3/14/2026,Stanford Senior Night Quad,4.4,2.4,2.2
+6,4,Nathan Yvers,Quebec,HB,13.550,5.0,8.550,,,,,3/14/2026,Stanford Senior Night Quad,5.0,1.4,1.5
+6,1,Jaxon Mitchell,California,HB,13.000,4.4,8.500,,0.1,,,3/14/2026,Stanford Senior Night Quad,4.4,1.6,1.4
+6,2,Evan Wenstad,California,HB,13.300,4.3,8.900,,0.1,,,3/14/2026,Stanford Senior Night Quad,4.3,1.2,1.0
+6,3,Tucker Yasunaga,California,HB,12.850,4.3,8.550,,,,,3/14/2026,Stanford Senior Night Quad,4.3,1.4,1.5
+6,4,Matteo Bardana,California,HB,13.250,4.5,8.650,,0.1,,,3/14/2026,Stanford Senior Night Quad,4.5,1.4,1.3
+6,1,John Hults,Air Force,HB,11.450,3.9,7.550,,,,,3/14/2026,Stanford Senior Night Quad,3.9,2.5,2.4
+6,2,Isaac Koo,Air Force,HB,12.750,4.6,8.150,,,,,3/14/2026,Stanford Senior Night Quad,4.6,1.9,1.8
+6,3,Jared Fry,Air Force,HB,12.900,4.5,8.400,,,,,3/14/2026,Stanford Senior Night Quad,4.5,1.6,1.6
+6,4,Tai Gopaul,Air Force,HB,13.600,4.7,8.800,,0.1,,,3/14/2026,Stanford Senior Night Quad,4.7,1.1,1.3
+6,1,Kevin Carvalho,France,HB,13.550,5.1,8.450,,,,,3/14/2026,Stanford Senior Night Quad,5.1,1.4,1.7
+6,2,Enea Fouchand,France,HB,12.800,4.8,8.000,,,,,3/14/2026,Stanford Senior Night Quad,4.8,1.9,2.1
+6,3,Leeroy Traore-Malatre,France,HB,12.100,5.2,6.900,,,,,3/14/2026,Stanford Senior Night Quad,5.2,3.1,3.1
+6,4,Anthony Mansard,France,HB,11.550,4.6,6.850,,0.1,,,3/14/2026,Stanford Senior Night Quad,4.6,3.3,3.0
+6,5,Nael Sakouhi,France,HB,12.800,5.3,7.500,,,,,3/14/2026,Stanford Senior Night Quad,5.3,2.5,2.5
+6,6,Swaimy Bellil,France,HB,12.750,4.5,8.150,,0.1,,,3/14/2026,Stanford Senior Night Quad,4.5,1.9,1.8
+6,1,Nick Kuebler,Stanford,HB,12.700,4.5,8.100,,0.1,,,3/14/2026,Stanford Senior Night Quad,4.5,1.8,2.0
+6,2,Wade Nelson,Stanford,HB,13.500,4.9,8.600,,,,,3/14/2026,Stanford Senior Night Quad,4.9,1.4,1.4
+6,3,Junnosuke Iwai,Stanford,HB,14.300,5.1,9.100,,0.1,,,3/14/2026,Stanford Senior Night Quad,5.1,1.0,0.8
+6,4,Zachary Green,Stanford,HB,12.700,5.0,7.700,,,,,3/14/2026,Stanford Senior Night Quad,5.0,2.4,2.2

@@ -19,24 +19,20 @@ import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 import com.doubletuck.model.VirtiusScore;
 
-@Component
-public class VirtiusExportStatusWriter {
+import lombok.Getter;
 
-  private static final Logger logger = LoggerFactory.getLogger(VirtiusExportStatusWriter.class);
+public class ExportTrackingFileWriter {
 
-  @Value("${export.data.directory}")
-  private String exportDataDirectory;
+  private static final Logger logger = LoggerFactory.getLogger(ExportTrackingFileWriter.class);
 
-  @Value("${export.data.filename}")
-  private String exportDataFilename;
+  @Getter
+  private final Path trackingFilePath;
 
-  private Path getOutputFilePath() {
-    return Path.of(exportDataDirectory, exportDataFilename);
+  public ExportTrackingFileWriter(Path trackingFilePath) {
+    this.trackingFilePath = trackingFilePath;
   }
 
   private enum Headers {
@@ -71,7 +67,7 @@ public class VirtiusExportStatusWriter {
 
   public void writeFile(List<VirtiusScore> sessions) {
     try {
-      Files.createDirectories(getOutputFilePath().getParent());
+      Files.createDirectories(trackingFilePath.getParent());
     } catch (IOException e) {
       logger.error("An error when creating");
       return;
@@ -79,7 +75,7 @@ public class VirtiusExportStatusWriter {
 
     try (
         BufferedWriter writer = Files.newBufferedWriter(
-            getOutputFilePath(),
+            trackingFilePath,
             StandardOpenOption.CREATE,
             StandardOpenOption.TRUNCATE_EXISTING);
         CSVPrinter printer = new CSVPrinter(writer, CSVFormat.RFC4180.builder()
@@ -93,7 +89,7 @@ public class VirtiusExportStatusWriter {
         rowCount++;
       }
       printer.flush();
-      logger.info("Wrote {} records to {}.", rowCount, getOutputFilePath());
+      logger.info("Wrote {} records to {}.", rowCount, trackingFilePath);
     } catch (IOException e) {
       logger.error("Error upserting export status CSV", e);
     }
@@ -120,14 +116,14 @@ public class VirtiusExportStatusWriter {
 
     ArrayList<VirtiusScore> virtiusScoreList = new ArrayList<>();
 
-    if (!Files.exists(getOutputFilePath())) {
-      logger.error("Cannot read the Virtius scores export file {} because it does not exist.",
-          getOutputFilePath().toString());
+    if (!Files.exists(trackingFilePath)) {
+      logger.error("The file {} does not exist.",
+          trackingFilePath.toString());
       return virtiusScoreList;
     }
 
     try (
-        BufferedReader reader = Files.newBufferedReader(getOutputFilePath());
+        BufferedReader reader = Files.newBufferedReader(trackingFilePath);
         CSVParser parser = CSVParser.parse(reader, CSVFormat.RFC4180.builder()
             .setHeader(Headers.class)
             .setSkipHeaderRecord(true)
@@ -158,38 +154,10 @@ public class VirtiusExportStatusWriter {
       }
 
     } catch (Exception e) {
-      logger.error("An error occurred when reading the Virtius score export status file {}: ", getOutputFilePath(), e);
+      logger.error("An error occurred when reading the Virtius score export status file {}: ", trackingFilePath, e);
     }
 
     return virtiusScoreList;
-  }
-
-  public List<VirtiusScore> filterOutExportedSessions(List<VirtiusScore> sessions, LocalDateTime notAfterDate) {
-
-    List<VirtiusScore> filteredSessions = new ArrayList<>();
-    if (notAfterDate != null) {
-      for (VirtiusScore session : sessions) {
-        if (session.getMeetDate().isBefore(notAfterDate)) {
-          filteredSessions.add(session);
-        }
-      }
-    }
-
-    List<VirtiusScore> fileSessions = this.readFile();
-    Map<String, VirtiusScore> fileSessionMap = new LinkedHashMap<>();
-    for (VirtiusScore session : fileSessions) {
-      fileSessionMap.put(session.getSessionId(), session);
-    }
-
-    for (VirtiusScore filteredSession : filteredSessions) {
-      VirtiusScore fileSession = fileSessionMap.get(filteredSession.getSessionId());
-      if (fileSession == null ||
-          (fileSession != null && VirtiusScore.ExportStatus.EXPORTED.equals(fileSession.getExportStatus()))) {
-        filteredSessions.remove(filteredSession);
-      }
-    }
-
-    return filteredSessions;
   }
 
   private String asNonNullString(Object value) {

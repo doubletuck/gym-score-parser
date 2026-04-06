@@ -16,39 +16,38 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 import com.doubletuck.model.VirtiusScore;
 
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
 
 /**
  * Reads and exports the scores that are hosted on the Virti.us website.
- * 
+ *
  * When using the parser, a list of VirtiusScore objects is passed in and stored
  * as
  * meetSessionList. Each VirtiusScore object has a scoreUrl that indicates the
  * meet
  * session url, and from there the scores can be found and exported to file.
  */
-@Component
 public class VirtiusMeetScoreParser extends AbstractWebParser {
 
   private final static Logger logger = LoggerFactory.getLogger(VirtiusMeetScoreParser.class);
 
-  @Value("${export.data.directory}")
-  private String exportDataDirectory;
+  private final String exportDataDirectory;
 
   @Getter
   @Setter
   private List<VirtiusScore> meetSessionList = new ArrayList<VirtiusScore>();
 
-  public VirtiusMeetScoreParser() {
+  public VirtiusMeetScoreParser(String exportDataDirectory) {
+    this.exportDataDirectory = exportDataDirectory;
   }
 
-  public VirtiusMeetScoreParser(List<VirtiusScore> meetSessionList) {
+  public VirtiusMeetScoreParser(String exportDataDirectory, List<VirtiusScore> meetSessionList) {
+    this.exportDataDirectory = exportDataDirectory;
     this.meetSessionList = meetSessionList;
   }
 
@@ -63,6 +62,13 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
       logger.info("Initiate the download of {} Virtius meet sessions.", this.meetSessionList.size());
       initializeWebDriver();
       for (VirtiusScore currentSession : meetSessionList) {
+        if (currentSession.getScoreUrl() == null || currentSession.getScoreUrl().isEmpty()) {
+          logger.warn(
+              "Cannot process the session because the scoreUrl is missing. Skipping and moving to the next item. {}",
+              currentSession);
+          continue;
+        }
+        
         logger.info("Begin extracting scores for session {}.", currentSession.getScoreUrl());
 
         String scoreText = extractScores(currentSession.getScoreUrl());
@@ -89,7 +95,8 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
     }
   }
 
-  private String extractScores(String sessionUrl) {
+  @SuppressWarnings("null")
+  private String extractScores(@NonNull String sessionUrl) {
     String exportedText = null;
 
     try {

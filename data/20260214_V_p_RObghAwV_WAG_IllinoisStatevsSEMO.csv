@@ -1,0 +1,58 @@
+Round,Order,Name,Team,Event,Score,Difficulty,Execution,Neutral Deduction,Stick Bonus,Inquiry,Edited,Date,Event,SV1,SV2,J1,J2
+1,1,Jaly Jones,Illinois State,VT,9.700,,,,,,,2/14/2026,Illinois State vs SEMO,9.95,9.95,9.75,9.65
+1,2,Mia Oh,Illinois State,VT,9.725,,,,,,,2/14/2026,Illinois State vs SEMO,9.95,9.95,9.70,9.75
+1,3,Sammie Wolff,Illinois State,VT,9.750,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.70,9.80
+1,4,Leah Davis,Illinois State,VT,9.700,,,,,,,2/14/2026,Illinois State vs SEMO,9.95,9.95,9.75,9.65
+1,5,Savannah Ray,Illinois State,VT,9.750,,,,,,,2/14/2026,Illinois State vs SEMO,9.95,9.95,9.75,9.75
+1,6,Madyson Baucom,Illinois State,VT,9.700,,,,,,,2/14/2026,Illinois State vs SEMO,9.95,9.95,9.70,9.70
+1,7,Jercy Koliego,Illinois State,VT,9.500,,,,,,,2/14/2026,Illinois State vs SEMO,9.80,9.80,9.50,9.50
+1,8,Mia LeBlanc,Illinois State,VT,9.650,,,,,,,2/14/2026,Illinois State vs SEMO,9.95,9.95,9.65,9.65
+1,1,Kailyn Hamilton,SEMO,VT,9.650,,,,,,,2/14/2026,Illinois State vs SEMO,9.90,9.90,9.65,9.65
+1,2,Ailey Kuehn,SEMO,VT,9.725,,,,,,,2/14/2026,Illinois State vs SEMO,9.95,9.95,9.70,9.75
+1,3,Nyah Reader,SEMO,VT,9.625,,,,,,,2/14/2026,Illinois State vs SEMO,9.95,9.95,9.65,9.60
+1,4,Joselene Hernandez,SEMO,VT,9.750,,,,,,,2/14/2026,Illinois State vs SEMO,9.95,9.95,9.75,9.75
+1,5,Jaidan Kossuth,SEMO,VT,9.750,,,,,,,2/14/2026,Illinois State vs SEMO,9.95,9.95,9.70,9.80
+1,6,Taylor Ingle,SEMO,VT,9.850,,,,,,,2/14/2026,Illinois State vs SEMO,9.95,9.95,9.85,9.85
+2,1,Savannah Ray,Illinois State,UB,9.650,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.60,9.70
+2,2,Mia LeBlanc,Illinois State,UB,9.600,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.70,9.50
+2,3,Julia Heiner,Illinois State,UB,8.350,,,,,,Y,2/14/2026,Illinois State vs SEMO,9.40,9.40,8.30,8.40
+2,4,Jercy Koliego,Illinois State,UB,9.675,,,,,,Y,2/14/2026,Illinois State vs SEMO,9.90,9.90,9.70,9.65
+2,5,Jada Beswick,Illinois State,UB,9.675,,,,,,Y,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.65,9.70
+2,6,Madyson Baucom,Illinois State,UB,9.700,,,,,,Y,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.70,9.70
+2,7,Kamryn Banach,Illinois State,UB,9.500,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.60,9.40
+2,1,Kailyn Hamilton,SEMO,UB,9.675,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.55,9.80
+2,2,Sydney Crouch,SEMO,UB,9.400,,,,,,,2/14/2026,Illinois State vs SEMO,9.90,9.90,9.50,9.30
+2,3,Amelia May,SEMO,UB,9.425,,,,,,,2/14/2026,Illinois State vs SEMO,9.90,9.90,9.30,9.55
+2,4,Gracie Jones,SEMO,UB,9.575,,,,,,Y,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.60,9.55
+2,5,Taylor Ingle,SEMO,UB,9.575,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.50,9.65
+2,6,Ava Johnston,SEMO,UB,8.325,,,,,,,2/14/2026,Illinois State vs SEMO,9.40,9.40,8.25,8.40
+3,1,Savannah Ray,Illinois State,BB,9.600,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.60,9.60
+3,2,Jaly Jones,Illinois State,BB,9.700,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.70,9.70
+3,3,Courtney Woods,Illinois State,BB,9.650,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.70,9.60
+3,4,Ally Lau,Illinois State,BB,8.875,,,,,,,2/14/2026,Illinois State vs SEMO,9.70,9.70,8.90,8.85
+3,5,Leah Davis,Illinois State,BB,9.050,,,,,,,2/14/2026,Illinois State vs SEMO,9.90,9.90,9.10,9.00
+3,6,Mia LeBlanc,Illinois State,BB,8.650,,,,,,,2/14/2026,Illinois State vs SEMO,9.90,9.90,8.60,8.70
+3,7,Audrey Hiatt,Illinois State,BB,9.700,,,,,,,2/14/2026,Illinois State vs SEMO,9.90,9.90,9.60,9.80
+3,8,Joy Ziegenfelder,Illinois State,BB,9.775,,,,,,Y,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.80,9.75
+3,1,Nyah Reader,SEMO,BB,9.650,,,,,,,2/14/2026,Illinois State vs SEMO,9.90,9.90,9.60,9.70
+3,2,Reagan Sams,SEMO,BB,9.500,,,,,,,2/14/2026,Illinois State vs SEMO,9.80,9.80,9.60,9.40
+3,3,Jordan Napolitano,SEMO,BB,9.825,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.85,9.80
+3,4,Taylor Ingle,SEMO,BB,9.775,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.85,9.70
+3,5,Leah Parton,SEMO,BB,9.875,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.90,9.85
+3,6,Jaidan Kossuth,SEMO,BB,9.850,,,,,,,2/14/2026,Illinois State vs SEMO,9.90,10.00,9.80,9.90
+3,7,Ailey Kuehn,SEMO,BB,9.725,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.70,9.75
+4,1,Courtney Woods,Illinois State,FX,9.650,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.70,9.60
+4,2,Mia LeBlanc,Illinois State,FX,9.600,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.60,9.60
+4,3,Mackenzie Flutman,Illinois State,FX,9.650,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.70,9.60
+4,4,Mia Oh,Illinois State,FX,9.775,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.80,9.75
+4,5,Leah Davis,Illinois State,FX,9.800,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.80,9.80
+4,6,Jaly Jones,Illinois State,FX,9.800,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.75,9.85
+4,7,Audrey Hiatt,Illinois State,FX,9.500,,,,,,,2/14/2026,Illinois State vs SEMO,9.90,9.90,9.55,9.45
+4,8,Ally Lau,Illinois State,FX,9.425,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.35,9.50
+4,1,Anna Lee Phillips,SEMO,FX,9.425,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.50,9.35
+4,2,Leah Parton,SEMO,FX,9.750,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.75,9.75
+4,3,Nyah Reader,SEMO,FX,9.800,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.85,9.75
+4,4,Reagan Sams,SEMO,FX,9.825,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.80,9.85
+4,5,Jaidan Kossuth,SEMO,FX,9.700,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.80,9.60
+4,6,Taylor Ingle,SEMO,FX,9.725,,,,,,,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.75,9.70
+4,7,Emily Sabers,SEMO,FX,9.575,,,,,,Y,2/14/2026,Illinois State vs SEMO,10.00,10.00,9.65,9.50

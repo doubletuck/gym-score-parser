@@ -1,0 +1,59 @@
+Round,Order,Name,Team,Event,Score,Difficulty,Execution,Neutral Deduction,Stick Bonus,Inquiry,Edited,Date,Event,SV1,SV2,J1,J2
+1,1,Lana Navarro,Washington,VT,9.775,,,,,,,3/13/2026,Washington vs Sac State,9.95,9.95,9.80,9.75
+1,2,Jessica Schaffer,Washington,VT,9.850,,,,,,,3/13/2026,Washington vs Sac State,9.95,9.95,9.85,9.85
+1,3,Kristin Lin,Washington,VT,9.825,,,,,,,3/13/2026,Washington vs Sac State,9.95,9.95,9.85,9.80
+1,4,Lilly Tubbs,Washington,VT,9.850,,,,,,,3/13/2026,Washington vs Sac State,9.95,9.95,9.85,9.85
+1,5,Mary McDonough,Washington,VT,9.825,,,,,,,3/13/2026,Washington vs Sac State,9.95,9.95,9.85,9.80
+1,6,Kira Bolden,Washington,VT,9.750,,,,,,,3/13/2026,Washington vs Sac State,9.95,9.95,9.80,9.70
+1,7,Caitlin McWilliams,Washington,VT,9.700,,,,,,,3/13/2026,Washington vs Sac State,9.95,9.95,9.75,9.65
+1,8,Lydia Rak,Washington,VT,9.650,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.70,9.60
+1,1,Athena Jones,Sac State,VT,9.550,,,,,,,3/13/2026,Washington vs Sac State,9.75,9.75,9.55,9.55
+1,2,Lexi Frank,Sac State,VT,9.700,,,,,,,3/13/2026,Washington vs Sac State,9.90,9.90,9.65,9.75
+1,3,Rose Wilson,Sac State,VT,9.725,,,,,,,3/13/2026,Washington vs Sac State,9.95,9.95,9.75,9.70
+1,4,Sarah Lutrel,Sac State,VT,9.800,,,,,,,3/13/2026,Washington vs Sac State,9.95,9.95,9.85,9.75
+1,5,Cadence Gaumont,Sac State,VT,9.675,,,,,,,3/13/2026,Washington vs Sac State,9.95,9.95,9.65,9.70
+1,6,Chloe Cohen,Sac State,VT,9.450,,,,,,,3/13/2026,Washington vs Sac State,9.75,9.75,9.45,9.45
+1,7,Kayla Herrera,Sac State,VT,9.500,,,,,,,3/13/2026,Washington vs Sac State,9.75,9.75,9.50,9.50
+2,1,Olivia Oppegard,Washington,UB,9.675,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.60,9.75
+2,2,Caitlin McWilliams,Washington,UB,9.625,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.70,9.55
+2,3,Kristin Lin,Washington,UB,9.825,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.80,9.85
+2,4,Deiah Moody,Washington,UB,9.900,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.90,9.90
+2,5,Lilly Tubbs,Washington,UB,9.900,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.95,9.85
+2,6,Mary McDonough,Washington,UB,9.725,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.70,9.75
+2,7,Evelyn DeYoung,Washington,UB,9.650,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.70,9.60
+2,1,Kayla Herrera,Sac State,UB,9.750,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.70,9.80
+2,2,Sarah Lutrel,Sac State,UB,9.775,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.80,9.75
+2,3,Maliyah James,Sac State,UB,9.750,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.70,9.80
+2,4,Jillianne Lastra,Sac State,UB,9.825,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.80,9.85
+2,5,Kara Houghton,Sac State,UB,9.800,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.80,9.80
+2,6,McKenna Carnesi,Sac State,UB,9.675,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.65,9.70
+2,7,Chloe Cohen,Sac State,UB,9.725,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.70,9.75
+3,1,Kristin Lin,Washington,BB,9.200,,,,,,,3/13/2026,Washington vs Sac State,9.90,9.90,9.10,9.30
+3,2,Lana Navarro,Washington,BB,9.025,,,,,,,3/13/2026,Washington vs Sac State,9.70,9.70,9.00,9.05
+3,3,Olivia Oppegard,Washington,BB,9.875,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.90,9.85
+3,4,Chelsea Hallinan,Washington,BB,9.850,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.80,9.90
+3,5,Deiah Moody,Washington,BB,9.700,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.60,9.80
+3,6,Lilly Tubbs,Washington,BB,9.925,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.90,9.95
+3,7,Elena Brian,Washington,BB,9.750,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.75,9.75
+3,8,Thu Nguyen,Washington,BB,9.700,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.65,9.75
+3,1,Athena Jones,Sac State,BB,9.625,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.50,9.75
+3,2,Kaela Copeland,Sac State,BB,9.675,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.75,9.60
+3,3,Kaitlyn Driessen,Sac State,BB,9.775,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.75,9.80
+3,4,Lexi Frank,Sac State,BB,9.650,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.65,9.65
+3,5,Sarah Lutrel,Sac State,BB,9.800,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.80,9.80
+3,6,Kara Houghton,Sac State,BB,9.750,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.70,9.80
+3,7,Emily Countryman,Sac State,BB,8.950,,,,,,,3/13/2026,Washington vs Sac State,9.80,9.80,8.80,9.10
+4,1,Chelsea Hallinan,Washington,FX,9.775,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.75,9.80
+4,2,Jessica Schaffer,Washington,FX,9.775,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.80,9.75
+4,3,Kristin Lin,Washington,FX,9.825,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.80,9.85
+4,4,Caitlin McWilliams,Washington,FX,9.850,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.90,9.80
+4,5,Kira Bolden,Washington,FX,9.800,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.75,9.85
+4,6,Mary McDonough,Washington,FX,9.775,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.80,9.75
+4,7,Olivia Oppegard,Washington,FX,9.700,,,,,,,3/13/2026,Washington vs Sac State,10.00,9.90,9.70,9.70
+4,8,Lana Navarro,Washington,FX,9.700,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.70,9.70
+4,1,Kaela Copeland,Sac State,FX,9.625,,,,,,,3/13/2026,Washington vs Sac State,10.00,9.90,9.60,9.65
+4,2,Emily Countryman,Sac State,FX,9.675,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.70,9.65
+4,3,Athena Jones,Sac State,FX,9.750,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.75,9.75
+4,4,Sarah Lutrel,Sac State,FX,9.725,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.70,9.75
+4,5,Kara Houghton,Sac State,FX,9.850,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.80,9.90
+4,6,Cadence Gaumont,Sac State,FX,9.800,,,,,,,3/13/2026,Washington vs Sac State,10.00,10.00,9.85,9.75

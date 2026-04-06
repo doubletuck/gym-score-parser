@@ -2,26 +2,17 @@
 
 Fetches and parses web pages to extract NCAA gymnastics scores.
 
-## Building the Project
-
-```bash
-mvn clean package
-```
-
 ## Running the Application
 
-Basic run:
+Build first, then run the fat JAR:
 ```shell
-mvn spring-boot:run
+mvn clean package
+java -jar target/gym-score-parser.jar
 ```
 
-Run in quiet mode in the background:
+Or run in the background:
 ```shell
-mvn spring-boot:run -q 2>&1 &
+java -jar target/gym-score-parser.jar > logs/application.log 2>&1 &
 ```
 
-Or using the compiled JAR:
-
-```shell
-java -jar target/gym-score-parser-1.0.0.jar
-```
+> **Note:** The export directory specified in `application.properties` (`export.data.directory`) must exist before running.

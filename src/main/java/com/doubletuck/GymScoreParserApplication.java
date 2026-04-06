@@ -1,54 +1,48 @@
 package com.doubletuck;
 
-import java.time.LocalDateTime;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 
 import com.doubletuck.model.VirtiusScore;
-import com.doubletuck.parser.VirtiusExportStatusWriter;
+import com.doubletuck.parser.ExportTrackingFileWriter;
 import com.doubletuck.parser.VirtiusMeetScoreParser;
 import com.doubletuck.parser.VirtiusMeetSessionsParser;
+import com.doubletuck.utils.AppProperties;
 
-@SpringBootApplication
 public class GymScoreParserApplication {
 
-  private final static Logger logger = LoggerFactory.getLogger(GymScoreParserApplication.class);
-
-  @Autowired
-  private VirtiusExportStatusWriter writer;
-
-  @Autowired
-  private VirtiusMeetScoreParser scoreParser;
+  private static final Logger logger = LoggerFactory.getLogger(GymScoreParserApplication.class);
 
   public static void main(String[] args) {
-    ConfigurableApplicationContext context = SpringApplication.run(GymScoreParserApplication.class, args);
+    AppProperties appProps = AppProperties.getInstance();
+    String exportDirProperty = appProps.getExportDataDirectory();
+    String exportTrackingFilenameProperty = appProps.getExportTrackingFilename();
 
-    GymScoreParserApplication app = context.getBean(GymScoreParserApplication.class);
-    app.run(context);
-  }
+    Path exportDirPath = Path.of(exportDirProperty);
+    if (!Files.isDirectory(exportDirPath)) {
+      logger.error("Export directory '{}' does not exist or is not a directory. Exiting export processing.", exportDirProperty);
+      return;
+    }
+    Path exportTrackingFilePath = Path.of(exportDirProperty, exportTrackingFilenameProperty);
 
-  public void run(ConfigurableApplicationContext context) {
+    logger.info("Begin bulk export of meet scores found on Virtius.");
     VirtiusMeetSessionsParser sessionsParser = new VirtiusMeetSessionsParser();
     List<VirtiusScore> virtiusScoreList = sessionsParser.getSessionList();
-    logger.info("Virtius scores found: {}", virtiusScoreList.size());
+    logger.info("{} sessions found on Virtius. Begin score of the sessions.", virtiusScoreList.size());
 
-    LocalDateTime someDate = LocalDateTime.now().minusMonths(2);
-    logger.info("Exporting meets from before {}", someDate);
-    List<VirtiusScore> sessionsNeedingExport = writer.filterOutExportedSessions(virtiusScoreList, someDate);
-    scoreParser.setMeetSessionList(sessionsNeedingExport);
+    VirtiusMeetScoreParser scoreParser = new VirtiusMeetScoreParser(exportDirProperty);
+    scoreParser.setMeetSessionList(virtiusScoreList);
     scoreParser.export();
-    sessionsNeedingExport = scoreParser.getMeetSessionList();
+    List<VirtiusScore> processedVirtiusScoreList = scoreParser.getMeetSessionList();
 
-    writer.updateFile(sessionsNeedingExport);
-    logger.info("Export processing is finished");
+    logger.info("Writing export processing information to {}.", exportTrackingFilenameProperty);
+    ExportTrackingFileWriter trackingFileWriter = new ExportTrackingFileWriter(exportTrackingFilePath);
+    trackingFileWriter.updateFile(processedVirtiusScoreList);
 
-    context.close();
-    System.exit(0);
+    logger.info("Bulk export processing is finished.");
   }
 }

@@ -1,0 +1,63 @@
+Round,Order,Name,Team,Event,Score,Difficulty,Execution,Neutral Deduction,Stick Bonus,Inquiry,Edited,Date,Event,SV1,SV2,J1,J2
+1,1,Courtney Knutson,Winona State,VT,9.575,,,,,,,1/23/2026,Winona State vs UW-Stout,9.80,9.80,9.60,9.55
+1,2,Harper Hamilton,Winona State,VT,9.425,,,,,,,1/23/2026,Winona State vs UW-Stout,9.80,9.80,9.40,9.45
+1,3,Molly Amrhein,Winona State,VT,9.550,,,,,,,1/23/2026,Winona State vs UW-Stout,9.95,9.95,9.45,9.65
+1,4,Irene Kearney,Winona State,VT,9.525,,,,,,,1/23/2026,Winona State vs UW-Stout,9.95,9.95,9.60,9.45
+1,5,Gabby Kraft,Winona State,VT,9.600,,,,,,Y,1/23/2026,Winona State vs UW-Stout,9.80,9.80,9.60,9.60
+1,6,Frankie Jo MacAskill,Winona State,VT,9.625,,,,,,,1/23/2026,Winona State vs UW-Stout,9.95,9.95,9.60,9.65
+1,7,Taylor Magierka,Winona State,VT,9.450,,,,,,,1/23/2026,Winona State vs UW-Stout,9.80,9.80,9.50,9.40
+1,8,Madysen Diskerud,Winona State,VT,8.975,,,,,,Y,1/23/2026,Winona State vs UW-Stout,9.90,9.90,9.15,8.80
+1,1,Jessica Qualich,UW-Stout,VT,9.700,,,,,,,1/23/2026,Winona State vs UW-Stout,9.90,9.90,9.65,9.75
+1,2,Anna Mielke,UW-Stout,VT,9.350,,,,,,,1/23/2026,Winona State vs UW-Stout,9.75,9.75,9.35,9.35
+1,3,Maggie Ryan,UW-Stout,VT,9.500,,,,,,,1/23/2026,Winona State vs UW-Stout,9.75,9.75,9.45,9.55
+1,4,Reesi Williams,UW-Stout,VT,9.425,,,,,,,1/23/2026,Winona State vs UW-Stout,9.75,9.75,9.40,9.45
+1,5,Kadyn Swank,UW-Stout,VT,9.400,,,,,,,1/23/2026,Winona State vs UW-Stout,9.75,9.75,9.35,9.45
+1,6,Kendra Henige,UW-Stout,VT,9.200,,,,,,,1/23/2026,Winona State vs UW-Stout,9.90,9.90,9.20,9.20
+1,7,Jaidyn Carroll,UW-Stout,VT,9.375,,,,,,,1/23/2026,Winona State vs UW-Stout,9.75,9.75,9.40,9.35
+1,8,Cassidy Lennard,UW-Stout,VT,8.550,,,,,,Y,1/23/2026,Winona State vs UW-Stout,9.80,9.80,8.50,8.60
+2,1,Irene Kearney,Winona State,UB,9.375,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,10.00,9.35,9.40
+2,2,Ashley-Elizabeth Lynch,Winona State,UB,9.100,,,,,,,1/23/2026,Winona State vs UW-Stout,9.80,9.80,9.10,9.10
+2,3,Ella Denno,Winona State,UB,8.800,,,,,,,1/23/2026,Winona State vs UW-Stout,9.80,9.80,8.75,8.85
+2,4,Addison Ward,Winona State,UB,9.525,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,10.00,9.55,9.50
+2,5,Kaylee Bateman,Winona State,UB,7.600,,,,,,,1/23/2026,Winona State vs UW-Stout,9.30,9.30,7.60,7.60
+2,6,Harper Hamilton,Winona State,UB,9.250,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,10.00,9.35,9.15
+2,7,Ashley Phillips,Winona State,UB,9.350,,,,,,,1/23/2026,Winona State vs UW-Stout,9.90,10.00,9.20,9.50
+2,8,Alyssa Crisp,Winona State,UB,9.050,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,9.90,9.20,8.90
+2,1,Maggie Ryan,UW-Stout,UB,8.575,,,,,,,1/23/2026,Winona State vs UW-Stout,9.10,9.10,8.55,8.60
+2,2,Caroline DiMarco,UW-Stout,UB,8.200,,,,,,,1/23/2026,Winona State vs UW-Stout,9.50,9.60,8.30,8.10
+2,3,Katelyn Jossie,UW-Stout,UB,7.800,,,,,,,1/23/2026,Winona State vs UW-Stout,9.00,9.00,7.80,7.80
+2,4,Jaidyn Carroll,UW-Stout,UB,7.500,,,,,,,1/23/2026,Winona State vs UW-Stout,9.20,9.00,7.70,7.30
+2,5,Jamie Beatty,UW-Stout,UB,9.600,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,10.00,9.60,9.60
+2,6,Sarah Lutz,UW-Stout,UB,9.475,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,10.00,9.55,9.40
+3,1,Aspen Peters,Winona State,BB,9.450,,,,,Y,,1/23/2026,Winona State vs UW-Stout,10.00,10.00,9.40,9.50
+3,2,Kaelyn Duman,Winona State,BB,8.700,,,,,,,1/23/2026,Winona State vs UW-Stout,9.70,9.70,8.80,8.60
+3,3,Reagan Kelley,Winona State,BB,9.625,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,10.00,9.55,9.70
+3,4,Harper Hamilton,Winona State,BB,9.250,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,9.50,9.40,9.10
+3,5,Kaylee Bateman,Winona State,BB,9.575,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,9.90,9.55,9.60
+3,6,Gabby Kraft,Winona State,BB,8.900,,,,,,,1/23/2026,Winona State vs UW-Stout,9.80,9.80,8.90,8.90
+3,7,Frankie Jo MacAskill,Winona State,BB,9.100,,,,,,,1/23/2026,Winona State vs UW-Stout,9.90,9.50,9.20,9.00
+3,8,Irene Kearney,Winona State,BB,8.725,,,,,,,1/23/2026,Winona State vs UW-Stout,9.60,9.70,8.60,8.85
+3,1,Cora Cardellino,UW-Stout,BB,9.500,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,10.00,9.40,9.60
+3,2,Kendra Henige,UW-Stout,BB,8.900,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,10.00,9.00,8.80
+3,3,Kadyn Swank,UW-Stout,BB,9.100,,,,,,,1/23/2026,Winona State vs UW-Stout,9.90,9.80,9.10,9.10
+3,4,Cassidy Lennard,UW-Stout,BB,9.300,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,10.00,9.20,9.40
+3,5,Jaidyn Carroll,UW-Stout,BB,9.100,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,9.80,9.20,9.00
+3,6,Jamie Beatty,UW-Stout,BB,9.025,,,,,,,1/23/2026,Winona State vs UW-Stout,9.90,9.90,9.05,9.00
+3,7,Julia Rhoades,UW-Stout,BB,9.375,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,10.00,9.30,9.45
+3,8,Reesi Williams,UW-Stout,BB,9.400,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,10.00,9.40,9.40
+4,1,Courtney Knutson,Winona State,FX,9.500,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,10.00,9.40,9.60
+4,2,Rachel Van Namen,Winona State,FX,9.225,,,,,,,1/23/2026,Winona State vs UW-Stout,9.70,9.70,9.25,9.20
+4,3,Lenée Dimkin,Winona State,FX,8.250,,,,,,,1/23/2026,Winona State vs UW-Stout,9.70,9.70,8.50,8.00
+4,4,Gabby Kraft,Winona State,FX,9.700,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,10.00,9.75,9.65
+4,5,Taylor Magierka,Winona State,FX,9.775,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,10.00,9.75,9.80
+4,6,Frankie Jo MacAskill,Winona State,FX,9.825,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,10.00,9.85,9.80
+4,7,Lynley Welshenbaugh,Winona State,FX,9.425,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,10.00,9.40,9.45
+4,8,Liana Tine,Winona State,FX,9.225,,,,,,,1/23/2026,Winona State vs UW-Stout,9.90,9.90,9.10,9.35
+4,1,Jessica Qualich,UW-Stout,FX,9.375,,,,,,Y,1/23/2026,Winona State vs UW-Stout,10.00,10.00,9.50,9.25
+4,2,Anna Mielke,UW-Stout,FX,9.325,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,10.00,9.20,9.45
+4,3,Jamie Beatty,UW-Stout,FX,9.400,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,10.00,9.30,9.50
+4,4,Kendra Henige,UW-Stout,FX,9.325,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,10.00,9.35,9.30
+4,5,Kaylie Kassing,UW-Stout,FX,9.450,,,,,,,1/23/2026,Winona State vs UW-Stout,10.00,10.00,9.55,9.35
+4,6,Sarah Lutz,UW-Stout,FX,8.900,,,0.1,,,Y,1/23/2026,Winona State vs UW-Stout,9.80,9.80,9.10,8.90
+4,7,Reesi Williams,UW-Stout,FX,9.325,,,,,,,1/23/2026,Winona State vs UW-Stout,9.90,10.00,9.30,9.35
+4,8,Jaidyn Carroll,UW-Stout,FX,8.550,,,,,,,1/23/2026,Winona State vs UW-Stout,9.80,9.80,8.60,8.50

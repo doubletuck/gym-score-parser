@@ -1,0 +1,74 @@
+Round,Order,Name,Team,Event,Score,Difficulty,Execution,Neutral Deduction,Stick Bonus,Inquiry,Edited,Date,Event,D,E1,E2
+1,1,Leo Koike,Oklahoma,FX,13.500,4.8,8.700,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.8,1.2,1.4
+1,2,Fuzzy Benas,Oklahoma,FX,13.850,5.2,8.650,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,5.2,1.4,1.3
+1,3,Nico Hamilton,Oklahoma,FX,13.750,5.1,8.650,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,5.1,1.4,1.3
+1,4,Sasha Bogonosiuk,Oklahoma,FX,13.650,5.3,8.450,0.1,,,,2/7/2026,Oklahoma / Air Force / Ohio State,5.3,1.5,1.6
+1,1,John Hults,Air Force,FX,12.400,4.3,8.100,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.3,2.0,1.8
+1,2,Tai Gopaul,Air Force,FX,12.600,4.7,7.900,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.7,2.1,2.1
+1,3,Jared Fry,Air Force,FX,12.400,4.5,8.100,0.2,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.5,1.8,2.0
+1,4,Isaac Koo,Air Force,FX,13.100,5.0,8.100,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,5.0,1.8,2.0
+1,1,Jacob Harmon,Ohio State,FX,13.100,4.9,8.300,0.1,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.9,1.6,1.8
+1,2,Chase Davenport-Mills,Ohio State,FX,13.400,4.9,8.500,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.9,1.4,1.6
+1,3,Drake Andrews,Ohio State,FX,13.100,4.7,8.400,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.7,1.5,1.7
+1,4,Jesse Pakele,Ohio State,FX,12.850,5.0,8.150,0.3,,,,2/7/2026,Oklahoma / Air Force / Ohio State,5.0,1.9,1.8
+2,1,Ignacio Yockers,Oklahoma,PH,14.150,5.5,8.650,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,5.5,1.2,1.5
+2,2,Tyler Flores,Oklahoma,PH,13.900,4.9,9.000,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.9,1.0,1.0
+2,3,Colby Aranda,Oklahoma,PH,14.500,5.5,9.000,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,5.5,1.1,0.9
+2,4,Mac Seyler,Oklahoma,PH,13.600,5.1,8.500,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,5.1,1.6,1.4
+2,1,Ryan Jacobson,Air Force,PH,12.250,4.5,7.750,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.5,2.1,2.4
+2,2,John Hults,Air Force,PH,9.950,4.2,5.750,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.2,4.4,4.1
+2,3,Jack Matlock,Air Force,PH,13.900,5.2,8.700,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,5.2,1.2,1.4
+2,4,Sam Brown,Air Force,PH,14.000,5.1,8.900,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,5.1,1.1,1.1
+2,5,Jared Fry,Air Force,PH,11.900,4.5,7.400,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.5,2.7,2.5
+2,1,Kristian Grahovski,Ohio State,PH,13.600,4.9,8.700,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.9,1.2,1.4
+2,2,David Ramirez,Ohio State,PH,12.900,4.9,8.000,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.9,1.9,2.1
+2,3,Jace Hashimoto,Ohio State,PH,13.250,4.8,8.450,,,,Y,2/7/2026,Oklahoma / Air Force / Ohio State,4.8,1.5,1.6
+2,4,Conlan Simpkins,Ohio State,PH,13.600,4.7,8.900,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.7,1.2,1.0
+3,1,Brigham Frentheway,Oklahoma,SR,13.450,4.7,8.750,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.7,1.2,1.3
+3,2,Francisco Velez Belendez,Oklahoma,SR,13.950,5.1,8.850,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,5.1,1.2,1.1
+3,3,Tas Hajdu,Oklahoma,SR,13.850,4.9,8.850,,0.1,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.9,1.1,1.2
+3,4,Mac Seyler,Oklahoma,SR,12.900,4.2,8.700,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.2,1.4,1.2
+3,1,Ryan Jacobson,Air Force,SR,11.550,4.2,7.350,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.2,2.8,2.5
+3,2,Tai Gopaul,Air Force,SR,12.550,4.2,8.250,,0.1,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.2,1.9,1.6
+3,3,Jared Fry,Air Force,SR,11.250,4.3,6.950,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.3,3.0,3.1
+3,4,Jack Foltyn,Air Force,SR,11.950,4.3,7.650,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.3,2.5,2.2
+3,1,Kristian Grahovski,Ohio State,SR,13.300,4.0,9.300,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.0,0.7,0.7
+3,2,Drake Andrews,Ohio State,SR,13.100,4.3,8.800,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.3,1.3,1.1
+3,3,Peyton Contini,Ohio State,SR,12.950,4.6,8.350,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.6,1.8,1.5
+3,4,Jesse Pakele,Ohio State,SR,13.600,4.9,8.700,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.9,1.2,1.4
+4,1,Leo Koike,Oklahoma,VT,13.100,4.8,8.400,0.1,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.8,1.6,1.6
+4,2,Tyler Flores,Oklahoma,VT,14.550,4.8,9.650,,0.1,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.8,0.4,0.3
+4,3,Sasha Bogonosiuk,Oklahoma,VT,14.550,4.8,9.650,,0.1,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.8,0.3,0.4
+4,4,Fuzzy Benas,Oklahoma,VT,14.250,4.8,9.450,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.8,0.5,0.6
+4,1,John Hults,Air Force,VT,13.800,4.4,9.400,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.4,0.6,0.6
+4,2,Jack Foltyn,Air Force,VT,13.700,4.4,9.300,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.4,0.7,0.7
+4,3,Jared Fry,Air Force,VT,13.200,4.4,9.100,0.3,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.4,1.0,0.8
+4,4,Isaac Koo,Air Force,VT,13.500,4.4,9.200,0.1,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.4,0.8,0.8
+4,1,Peyton Contini,Ohio State,VT,14.100,4.8,9.300,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.8,0.8,0.6
+4,2,Zach Snyder,Ohio State,VT,14.150,4.8,9.350,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.8,0.7,0.6
+4,3,David Ramirez,Ohio State,VT,14.100,4.8,9.300,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.8,0.7,0.7
+4,4,Chase Davenport-Mills,Ohio State,VT,14.300,4.8,9.500,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.8,0.5,0.5
+5,1,Sasha Bogonosiuk,Oklahoma,PB,12.900,4.5,8.400,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.5,1.7,1.5
+5,2,Tyler Flores,Oklahoma,PB,13.200,4.4,8.800,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.4,1.1,1.3
+5,3,Tas Hajdu,Oklahoma,PB,13.350,4.9,8.450,,,,Y,2/7/2026,Oklahoma / Air Force / Ohio State,4.9,1.5,1.6
+5,4,Fuzzy Benas,Oklahoma,PB,13.600,4.7,8.900,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.7,1.1,1.1
+5,1,Tai Gopaul,Air Force,PB,12.950,4.3,8.550,,0.1,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.3,1.4,1.5
+5,2,Palmer Wright,Air Force,PB,12.850,4.4,8.450,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.4,1.5,1.6
+5,3,Isaac Koo,Air Force,PB,12.700,4.4,8.300,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.4,1.6,1.8
+5,4,Jack Foltyn,Air Force,PB,12.250,5.0,7.250,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,5.0,2.6,2.9
+5,1,Jesse Pakele,Ohio State,PB,12.850,4.7,8.150,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.7,1.8,1.9
+5,2,Tyler Burgess,Ohio State,PB,12.450,4.8,7.650,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.8,2.4,2.3
+5,3,Drake Andrews,Ohio State,PB,13.150,4.9,8.150,,0.1,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.9,1.7,2.0
+5,4,David Ramirez,Ohio State,PB,13.850,4.9,8.850,,0.1,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.9,1.1,1.2
+6,1,Brigham Frentheway,Oklahoma,HB,13.250,4.7,8.450,,0.1,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.7,1.6,1.5
+6,2,Nico Hamilton,Oklahoma,HB,13.600,4.9,8.600,,0.1,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.9,1.4,1.4
+6,3,Fuzzy Benas,Oklahoma,HB,13.950,5.1,8.750,,0.1,,,2/7/2026,Oklahoma / Air Force / Ohio State,5.1,1.2,1.3
+6,4,Kelton Christiansen,Oklahoma,HB,13.300,5.0,8.200,,0.1,,,2/7/2026,Oklahoma / Air Force / Ohio State,5.0,1.9,1.7
+6,1,John Hults,Air Force,HB,12.050,3.6,8.450,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,3.6,1.6,1.5
+6,2,Isaac Koo,Air Force,HB,11.500,4.6,6.900,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.6,3.3,2.9
+6,3,Tai Gopaul,Air Force,HB,13.250,4.8,8.350,,0.1,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.8,1.7,1.6
+6,4,Jared Fry,Air Force,HB,13.400,4.5,8.800,,0.1,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.5,1.2,1.2
+6,1,Kristian Grahovski,Ohio State,HB,13.500,4.9,8.500,,0.1,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.9,1.4,1.6
+6,2,Jacob Harmon,Ohio State,HB,13.250,4.8,8.450,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.8,1.6,1.5
+6,3,David Ramirez,Ohio State,HB,11.100,4.3,6.800,,,,,2/7/2026,Oklahoma / Air Force / Ohio State,4.3,3.1,3.3
+6,4,Noah Copeland,Ohio State,HB,12.150,4.1,7.950,,0.1,,Y,2/7/2026,Oklahoma / Air Force / Ohio State,4.1,2.2,1.9
