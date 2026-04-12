@@ -1,64 +1,87 @@
 # Meet Score Export Command Line Interface
 
-## Generate Tracking File
-### Command Name
-generate-tracking-file
+## Usage
 
-### Description
-Generates a CSV file that lists all the meets that are on the Virtius home page.
+```
+java -jar gym-score-parser.jar <command> [options]
+java -jar gym-score-parser.jar --help
+java -jar gym-score-parser.jar <command> --help
+```
 
-### Options
-| Option | Required or optional | Description |
+---
+
+## Commands
+
+### `generate-tracking-file`
+
+Generates a CSV tracking file that lists all the meets found on the Virtius home page. The tracking file records each meet and its export status. It is used by `bulk-export-scores` to determine which meets have already been exported.
+
+#### Options
+
+| Option | Required | Description |
 | --- | --- | --- |
-| --export-directory directory | Optional | The directory where the tracking file is written. If not provided, then defaults to the `export.data.directory` value in the `application.properties` file. |
-| --export-tracking-filename filename | Optional | The name of the file that is used to track the exports. If not provided, then defaults to the `export.tracking-filename` value in the `application.properties` file. The file will be stored in the `export-directory`. |
-| --overwrite-tracking-file | Optional | If present, then indicates that if the tracking file already exists, then it should be overwritten and all data within it will be cleared. Otherwise, the file is updated with new information. |
+| `--export-directory <directory>` | Optional | Directory where the tracking file is written. Defaults to `export.data.directory` in `application.properties`. |
+| `--export-tracking-filename <filename>` | Optional | Name of the tracking file. Defaults to `export.tracking-filename` in `application.properties`. The file is stored in `--export-directory`. |
+| `--overwrite-tracking-file` | Optional | If present, an existing tracking file is overwritten and all data within it is cleared. Otherwise, the file is updated with new meet information. |
 
-### Examples
-#### Example: Use defaults
+#### Examples
+
 ```
+# Use all defaults
 generate-tracking-file
+
+# Write the tracking file to a specific directory
+generate-tracking-file --export-directory /data/exports
+
+# Use a custom tracking filename
+generate-tracking-file --export-tracking-filename 2026-meets.csv
+
+# Overwrite an existing tracking file
+generate-tracking-file --overwrite-tracking-file
+
+# Combine options
+generate-tracking-file --export-directory /data/exports --export-tracking-filename 2026-meets.csv --overwrite-tracking-file
 ```
 
-#### Example: Specify tracking file name
-```
-generate-tracking-file --export-tracking-filename 2026-meet-scores-list.csv
-```
+---
 
-## Bulk Export Scores
-### Command Name
+### `bulk-export-scores`
+
+Exports scores for all meets listed on the [Virtius](https://virti.us/) home page. Each meet's scores are written to a separate CSV file. Export status for every meet is recorded in the tracking file.
+
+Meets that have already been exported (as recorded in the tracking file) are skipped by default. Use `--overwrite-export-files` to re-export them.
+
+#### Options
+
+| Option | Required | Description |
+| --- | --- | --- |
+| `--export-directory <directory>` | Optional | Directory where exported score files are written. Defaults to `export.data.directory` in `application.properties`. |
+| `--export-tracking-filename <filename>` | Optional | Name of the file used to track export status. Defaults to `export.tracking-filename` in `application.properties`. The file is stored in `--export-directory`. |
+| `--overwrite-export-files` | Optional | If present, meets that were previously exported are re-exported and their files are overwritten. If omitted, previously exported meets are skipped. |
+
+#### Processing
+
+1. Reads the tracking file to determine which meets have already been exported.
+2. Calls `VirtiusMeetSessionsParser.getSessionList()` to retrieve all current meets from the Virtius page.
+3. Skips meets already marked as exported (unless `--overwrite-export-files` is set).
+4. Exports scores for each remaining meet to a CSV file in `--export-directory`.
+5. Updates the tracking file with the export status of each processed meet.
+
+#### Examples
+
+```
+# Use all defaults
 bulk-export-scores
 
-### Description
-Exports all scores that are listed on Virtius home page. If no criteria are specified, then all scores from the sessions listed on the hope page are exported. If criteria are specified, then only the meet scores that meet the criteria are exported. All export information is saved in a tracking file. 
+# Write exports to a specific directory
+bulk-export-scores --export-directory /data/exports
 
-### Options
-| Option | Required or optional | Description |
-| --- | --- | --- |
-| --export-directory directory | Optional | The directory in which the export data is written. If not provided, then defaults to the `export.data.directory` value in the `application.properties` file. |
-| --export-tracking-filename filename | Optional | The name of the file that is used to track the exports. If not provided, then defaults to the `export.tracking-filename` value in the `application.properties` file. The file will be stored in the `export-directory`. |
-| --min-meet-date date | Optional | A date in the format of YYYYMMDD. Will only export meets that occur on or after this date. If no value is given, then no begin range is considered. | 
-| --max-meet-date date | Optional | A date in the format of YYYYMMDD. Will only export meets that occur on or before this date. If no value is given, then no end range is considered. |
-| --overwrite-tracking-file | Optional | If present, then indicates that if the tracking file already exists, then it should be overwritten and all data within it will be cleared. Otherwise, the file is updated with new information. |
-| --overwrite-export-files | Optional | If present, then indicates that if the export file already exists, then it should be overwritten. Otherwise, do not overwrite it. |
+# Use a custom tracking filename
+bulk-export-scores --export-tracking-filename 2026-meets.csv
 
-### Processing
+# Re-export all meets, overwriting existing files
+bulk-export-scores --overwrite-export-files
 
-Setting variables from the CLI:
-- Set `--export-directory` value to the `exportDirectory` variable if it is provided. Otherwise, use the `export.data.directory` value from `application.properties`.
-- Set `--export-tracking-filename` value to the `exportTrackingFilename` variable if it is provided. Otherwise, use the `export.tracking-filename` value from `application.properties`.
-- Convert `--min-meet-date` to a LocalDateTime if it is provided and set it to the `minMeetDate` variable. If it's not a valid date, then log the error and exit processing.
-- Convert `--max-meet-date` to a LocalDateTime if it is provided and set it to the `maxMeetDate` variable. If it's not a valid date, then log the error and exit processing.
-- If `--overwrite-tracking-file` is provided, then set the `overwriteTrackingFile` variable to `true`. Otherwise, set the variable to `false`.
-- If `--overwrite-export-files` is provided, then set the `overwriteExportFiles` variable to `true`. Otherwise, set the variable to `false`.
-
-Validating the variables:
-- The value from `--export-directory` exists. If not, then log an error and exit.
-- The value from `--min-meet-date` can be converted into a valid date and it not after `--max-meet-date`.
-- The value from `--max-meet-date` can be converted into a valid date and it is not before `--min-meet-date`.
-
-Running the logic:
-- 
-
-
-
+# Combine options
+bulk-export-scores --export-directory /data/exports --export-tracking-filename 2026-meets.csv --overwrite-export-files
+```
