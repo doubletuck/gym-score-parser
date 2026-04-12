@@ -148,7 +148,7 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
     return exportedText;
   }
 
-  private void writeTsvAsCsv(String tsvText, Path outputFile) throws IOException {
+  void writeTsvAsCsv(String tsvText, Path outputFile) throws IOException {
     List<String> lines = tsvText.lines().toList();
 
     if (lines.isEmpty()) {
@@ -188,7 +188,7 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
         StandardOpenOption.TRUNCATE_EXISTING);
   }
 
-  private String escapeCsv(String value) {
+  String escapeCsv(String value) {
     if (value == null) {
       return "";
     }
