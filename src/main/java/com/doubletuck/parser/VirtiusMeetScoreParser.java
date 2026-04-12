@@ -21,7 +21,6 @@ import com.doubletuck.model.VirtiusScore;
 
 import lombok.Getter;
 import lombok.NonNull;
-import lombok.Setter;
 
 /**
  * Reads and exports the scores that are hosted on the Virti.us website.
@@ -36,27 +35,17 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
 
   private final static Logger logger = LoggerFactory.getLogger(VirtiusMeetScoreParser.class);
 
-  private final String exportDataDirectory;
+  private final Path exportDataDirectory;
 
   @Getter
-  @Setter
   private List<VirtiusScore> meetSessionList = new ArrayList<VirtiusScore>();
 
-  public VirtiusMeetScoreParser(String exportDataDirectory) {
-    this.exportDataDirectory = exportDataDirectory;
-  }
-
-  public VirtiusMeetScoreParser(String exportDataDirectory, List<VirtiusScore> meetSessionList) {
+  public VirtiusMeetScoreParser(Path exportDataDirectory, List<VirtiusScore> meetSessionList) {
     this.exportDataDirectory = exportDataDirectory;
     this.meetSessionList = meetSessionList;
   }
 
-  public void export() {
-
-    if (meetSessionList.isEmpty()) {
-      logger.info("No Virtius meet sessions where provided for the parser. Exiting exports processing.");
-      return;
-    }
+  public List<VirtiusScore> export() {
 
     try {
       logger.info("Initiate the download of {} Virtius meet sessions.", this.meetSessionList.size());
@@ -68,13 +57,13 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
               currentSession);
           continue;
         }
-        
+
         logger.info("Begin extracting scores for session {}.", currentSession.getScoreUrl());
 
         String scoreText = extractScores(currentSession.getScoreUrl());
         if (scoreText != null) {
           try {
-            Path exportFile = Path.of(exportDataDirectory + "/" + currentSession.generateFileName() + ".csv");
+            Path exportFile = Path.of(exportDataDirectory.toString(), currentSession.generateFileName() + ".csv");
             writeTsvAsCsv(scoreText, exportFile);
             currentSession.setExportFilename(exportFile.getFileName().toString());
             currentSession.setExportDate(LocalDateTime.now());
@@ -93,6 +82,7 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
     } finally {
       closeWebDriver();
     }
+    return meetSessionList;
   }
 
   @SuppressWarnings("null")

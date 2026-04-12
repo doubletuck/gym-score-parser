@@ -160,6 +160,13 @@ public class ExportTrackingFileWriter {
     return virtiusScoreList;
   }
 
+  public List<VirtiusScore> getRowsWithExportedStatus() {
+    List<VirtiusScore> scoreList = readFile();
+    return scoreList.stream()
+        .filter(s -> VirtiusScore.ExportStatus.EXPORTED.equals(s.getExportStatus()))
+        .toList();
+  }
+
   private String asNonNullString(Object value) {
     return value == null ? "" : value.toString();
   }
