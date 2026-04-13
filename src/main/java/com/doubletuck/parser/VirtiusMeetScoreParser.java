@@ -6,8 +6,10 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -60,7 +62,7 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
 
         logger.info("Begin extracting scores for session {}.", currentSession.getScoreUrl());
 
-        String scoreText = extractScores(currentSession.getScoreUrl());
+        String scoreText = extractScores(currentSession);
         if (scoreText != null) {
           try {
             Path exportFile = Path.of(exportDataDirectory.toString(), currentSession.generateFileName() + ".csv");
@@ -86,8 +88,51 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
   }
 
   @SuppressWarnings("null")
-  private String extractScores(@NonNull String sessionUrl) {
+  private void extractMeetInfo(VirtiusScore session, WebDriverWait wait) {
+    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(
+        "M/d/yyyy '@' h:mm a",
+        Locale.ENGLISH);
+    String sessionUrl = session.getScoreUrl();
+
+    logger.trace("{} - Click on the 'INFO' button to get meet information such as title, date, and location.",
+        sessionUrl);
+    WebElement infoButton = wait.until(
+        ExpectedConditions.elementToBeClickable(
+            By.xpath("//button[contains(@class, 'infoButton')]")));
+    infoButton.click();
+
+    logger.trace("{} - Wait for the 'INFO' tooltip-inner div to be visible", sessionUrl);
+    WebElement tooltipInner = wait.until(
+        ExpectedConditions.visibilityOfElementLocated(By.className("tooltip-inner")));
+
+    String infoTitle = tooltipInner.findElement(By.className("title")).getText();
+    String infoDate = tooltipInner.findElement(By.className("date")).getText();
+    String infoLocation = tooltipInner.findElement(By.className("location")).getText();
+    String infoTeamScoring = tooltipInner.findElement(By.className("teamscoring")).getText();
+    
+    logger.debug("{} - Meet info: title='{}', date='{}', location='{}', teamScoring='{}'",
+        sessionUrl, infoTitle, infoDate, infoLocation, infoTeamScoring);
+
+    if (session.getMeetName() == null || session.getMeetName().isEmpty()) {
+      logger.info("{} - Setting meet name to '{}' from the INFO panel.", sessionUrl, infoTitle);
+      session.setMeetName(infoTitle);
+    }
+
+    if (session.getMeetDate() == null) {
+      logger.info("{} - Setting meet date to '{}' from the INFO panel.", sessionUrl, infoDate);
+      session.setMeetDate(LocalDateTime.parse(infoDate, dateFormatter));
+    }
+
+    if (session.getMeetLocation() == null || session.getMeetLocation().isEmpty()) {
+      logger.info("{} - Setting meet location to '{}' from the INFO panel.", sessionUrl, infoLocation);
+      session.setMeetLocation(infoLocation);
+    }
+  }
+
+  @SuppressWarnings("null")
+  private String extractScores(@NonNull VirtiusScore session) {
     String exportedText = null;
+    String sessionUrl = session.getScoreUrl();
 
     try {
       logger.trace("{} - Invoke the web driver and go to the url.", sessionUrl);
@@ -95,6 +140,26 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
 
       logger.trace("{} - Pause for 10 seconds.", sessionUrl);
       WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+      extractMeetInfo(session, wait);
+
+      logger.trace("{} - Click on the 'INFO' button to get meet information such as title, date, and location.", sessionUrl);
+      WebElement infoButton = wait.until(
+          ExpectedConditions.elementToBeClickable(
+              By.xpath("//button[contains(@class, 'infoButton')]")));
+      infoButton.click();
+
+      logger.trace("{} - Wait for the 'INFO' tooltip-inner div to be visible", sessionUrl);
+      WebElement tooltipInner = wait.until(
+          ExpectedConditions.visibilityOfElementLocated(By.className("tooltip-inner")));
+
+      String infoTitle = tooltipInner.findElement(By.className("title")).getText();
+      String infoDate = tooltipInner.findElement(By.className("date")).getText();
+      String infoLocation = tooltipInner.findElement(By.className("location")).getText();
+      String infoTeamScoring = tooltipInner.findElement(By.className("teamscoring")).getText();
+
+      logger.info("{} - Meet info: title='{}', date='{}', location='{}', teamScoring='{}'",
+          sessionUrl, infoTitle, infoDate, infoLocation, infoTeamScoring);
 
       logger.trace("{} - Click on the 'STATS' button", sessionUrl);
       WebElement statsButton = wait.until(

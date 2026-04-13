@@ -20,6 +20,7 @@ public class VirtiusScore {
   private String sessionId;
   private String meetName;
   private LocalDateTime meetDate;
+  private String meetLocation;
   private boolean isWag = true;
   private ExportStatus exportStatus = ExportStatus.NOT_PROCESSED;
   private String exportFilename;

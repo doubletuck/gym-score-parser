@@ -2,30 +2,34 @@ package com.doubletuck.command;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.doubletuck.model.VirtiusScore;
 import com.doubletuck.parser.ExportTrackingFileWriter;
 import com.doubletuck.parser.VirtiusMeetScoreParser;
-import com.doubletuck.parser.VirtiusMeetSessionsParser;
 import com.doubletuck.utils.AppProperties;
 
+import ch.qos.logback.classic.Logger;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
 @Command(
-    name = "bulk-export-scores",
-    description = "Exports all scores listed on the Virtius page.",
-    mixinStandardHelpOptions = true
-)
-public class BulkExportScoresCommand implements Runnable {
+    name = "export-scores", 
+    description = "Exports the sessions provideed.", 
+    mixinStandardHelpOptions = true)
+public class ExportScoresCommand implements Runnable {
+  
+  private static final Logger logger = (Logger) LoggerFactory.getLogger(ExportScoresCommand.class);
 
-  private static final Logger logger = LoggerFactory.getLogger(BulkExportScoresCommand.class);
+  @Option(names = "--sessions",
+      required = true,
+      description = "One or more session ids, each separated by a comma")
+  private String sessionIds;
 
   @Option(names = "--export-directory",
       description = "Directory where exported files are written. Defaults to the export.data.directory value in application.properties.")
@@ -55,16 +59,14 @@ public class BulkExportScoresCommand implements Runnable {
           exportDirectory);
       return;
     }
-
+ 
     Path exportTrackingFilePath = Path.of(exportDirectory, exportTrackingFilename);
     ExportTrackingFileWriter trackingFileWriter = new ExportTrackingFileWriter(exportTrackingFilePath);
 
-    logger.info("Begin bulk export of meet scores found on Virtius.");
+    logger.info("Begin Virtius session export of meet scores.");
 
-    VirtiusMeetSessionsParser sessionsParser = new VirtiusMeetSessionsParser();
-    List<VirtiusScore> virtiusScoreList = sessionsParser.getSessionList();
-    logger.info("{} Virtius sessions found.", virtiusScoreList.size());
-    
+    List<VirtiusScore> virtiusScoreList = asVirtiusScoreList();
+
     if (!overwriteExportedFiles) {
       int initialSessionCount = virtiusScoreList.size();
       List<VirtiusScore> exportedSessions = trackingFileWriter.getRowsWithExportedStatus();
@@ -82,6 +84,20 @@ public class BulkExportScoresCommand implements Runnable {
     logger.info("Writing export processing information to {}.", exportTrackingFilename);
     trackingFileWriter.updateFile(virtiusScoreList);
 
-    logger.info("End bulk export of meet scores found on Virtius.");
+    logger.info("End Virtius session export of meet scores.");
+  }
+
+  List<VirtiusScore> asVirtiusScoreList() {
+    List<VirtiusScore> scoreList = new ArrayList<>();
+
+    for (String sessionId : sessionIds.split(",")) {
+      sessionId = sessionId.trim();
+      VirtiusScore score = new VirtiusScore();
+      score.setSessionId(sessionId);
+      score.setScoreUrl("https://virti.us/session?s=" + sessionId);
+      scoreList.add(score);
+    }
+
+    return scoreList;
   }
 }
