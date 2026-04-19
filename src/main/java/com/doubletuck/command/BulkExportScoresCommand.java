@@ -3,7 +3,10 @@ package com.doubletuck.command;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -65,14 +68,15 @@ public class BulkExportScoresCommand implements Runnable {
     Path exportTrackingFilePath = Path.of(exportDirectory, exportTrackingFilename);
     ExportTrackingFileWriter trackingFileWriter = new ExportTrackingFileWriter(exportTrackingFilePath);
 
-    logger.info("Begin bulk export of meet scores found on Virtius.");
+    Instant startTime = Instant.now();
+    logger.info("Bulk score export processing beginning at {}.", startTime);
 
     VirtiusMeetSessionsParser sessionsParser = new VirtiusMeetSessionsParser();
     List<VirtiusScore> virtiusScoreList = sessionsParser.getSessionList();
     logger.info("{} Virtius sessions found.", virtiusScoreList.size());
     
+    int initialSessionCount = virtiusScoreList.size();
     if (!overwriteExportedFiles) {
-      int initialSessionCount = virtiusScoreList.size();
       List<VirtiusScore> exportedSessions = trackingFileWriter.getRowsWithExportedStatus();
       Set<String> exportedSessionIds = exportedSessions.stream()
           .map(VirtiusScore::getSessionId)
@@ -84,12 +88,27 @@ public class BulkExportScoresCommand implements Runnable {
       }
     }
 
-    VirtiusMeetScoreParser scoreParser = new VirtiusMeetScoreParser(exportDirectoryPath, virtiusScoreList);
-    virtiusScoreList = scoreParser.export();
+    if (virtiusScoreList.size() > 0) {
+      VirtiusMeetScoreParser scoreParser = new VirtiusMeetScoreParser(exportDirectoryPath, virtiusScoreList);
+      virtiusScoreList = scoreParser.export();
+      trackingFileWriter.updateFile(virtiusScoreList);
+      logger.info("Wrote export processing information to {}.", exportTrackingFilename);
+    }
 
-    logger.info("Writing export processing information to {}.", exportTrackingFilename);
-    trackingFileWriter.updateFile(virtiusScoreList);
 
-    logger.info("End bulk export of meet scores found on Virtius.");
+    Instant endTime = Instant.now();
+    Duration duration = Duration.between(startTime, endTime);
+
+    Map<VirtiusScore.ExportStatus, Long> statusCounts = virtiusScoreList.stream()
+        .collect(Collectors.groupingBy(VirtiusScore::getExportStatus, Collectors.counting()));
+    logger.info("Export processing summary - Total sessions found: {}", initialSessionCount);
+    logger.info("Export processing summary - Total sessions processed: {}", virtiusScoreList.size());
+    for (VirtiusScore.ExportStatus status : VirtiusScore.ExportStatus.values()) {
+      logger.info("Export processing summary - Sessions {} count: {}", status, statusCounts.getOrDefault(status, 0L));
+    }
+    logger.info("Export processing summary - Processing begin time: {}", startTime);
+    logger.info("Export processing summary - Processing end time: {}", endTime);
+    logger.info("Export processing summary - Processing duration: {}m {}s", duration.toMinutesPart(), duration.toSecondsPart());
+    logger.info("Export processing summary - Finished");
   }
 }

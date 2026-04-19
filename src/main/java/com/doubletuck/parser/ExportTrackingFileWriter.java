@@ -9,6 +9,7 @@ import java.nio.file.StandardOpenOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -76,6 +77,12 @@ public class ExportTrackingFileWriter {
       return;
     }
 
+    List<VirtiusScore> sortedSessions = sessions.stream()
+        .sorted(Comparator
+            .comparing(VirtiusScore::getMeetDate, Comparator.nullsLast(Comparator.reverseOrder()))
+            .thenComparing(VirtiusScore::getMeetName, Comparator.nullsLast(Comparator.naturalOrder())))
+        .toList();
+
     try (
         BufferedWriter writer = Files.newBufferedWriter(
             trackingFilePath,
@@ -86,7 +93,7 @@ public class ExportTrackingFileWriter {
             .setRecordSeparator("\n")
             .get());) {
       int rowCount = 0;
-      for (VirtiusScore session : sessions) {
+      for (VirtiusScore session : sortedSessions) {
         String[] row = buildRow(session);
         printer.printRecord((Object[]) row);
         rowCount++;

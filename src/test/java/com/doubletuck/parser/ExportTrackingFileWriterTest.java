@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.tuple;
 
 class ExportTrackingFileWriterTest {
 
@@ -72,9 +73,11 @@ class ExportTrackingFileWriterTest {
     writer.writeFile(List.of(wagScore, magScore, unkScore));
     List<VirtiusScore> result = writer.readFile();
 
-    assertThat(result.get(0).getDiscipline()).isEqualTo(DisciplineCategory.WAG);
-    assertThat(result.get(1).getDiscipline()).isEqualTo(DisciplineCategory.MAG);
-    assertThat(result.get(2).getDiscipline()).isEqualTo(DisciplineCategory.UNK);
+    assertThat(result).extracting(VirtiusScore::getSessionId, VirtiusScore::getDiscipline)
+        .containsExactlyInAnyOrder(
+            tuple("1", DisciplineCategory.WAG),
+            tuple("2", DisciplineCategory.MAG),
+            tuple("3", DisciplineCategory.UNK));
   }
 
   @Test

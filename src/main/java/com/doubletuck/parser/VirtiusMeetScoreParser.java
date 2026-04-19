@@ -69,18 +69,19 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
         }
         sessionCount++;
 
-        logger.info("{} - Begin extracting scores for the session.", currentSession.getScoreUrl());
+        logger.info("{} - Start score data export.", currentSession.getScoreUrl());
 
         String scoreText = extractScores(currentSession);
         if (scoreText != null) {
           try {
             Path exportFile = Path.of(exportDataDirectory.toString(), currentSession.generateFileName() + ".csv");
             writeTsvAsCsv(scoreText, exportFile);
+            logger.info("{} - Score data saved to file {}", currentSession.getScoreUrl(), 
+                exportFile.getFileName().toString());
             currentSession.setExportFilename(exportFile.getFileName().toString());
             currentSession.setExportDate(LocalDateTime.now());
             currentSession.setExportStatus(VirtiusScore.ExportStatus.EXPORTED);
-            logger.info("{} - Score data was extracted and saved to {}", currentSession.getScoreUrl(),
-                        currentSession.getExportFilename());
+            logger.info("{} - Finish score data export.", currentSession.getScoreUrl());
           } catch (Exception e) {
             currentSession.setExportStatus(VirtiusScore.ExportStatus.ERROR);
             currentSession.setExportMessage(e.getMessage());
