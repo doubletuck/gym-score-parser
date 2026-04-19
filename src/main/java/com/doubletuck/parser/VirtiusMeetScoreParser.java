@@ -36,6 +36,7 @@ import lombok.NonNull;
 public class VirtiusMeetScoreParser extends AbstractWebParser {
 
   private final static Logger logger = LoggerFactory.getLogger(VirtiusMeetScoreParser.class);
+  private final static int WEBDRIVER_RESTART_INTERVAL = 50;
 
   private final Path exportDataDirectory;
 
@@ -52,6 +53,7 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
     try {
       logger.info("Initiate the download of {} Virtius meet sessions.", this.meetSessionList.size());
       initializeWebDriver();
+      int sessionCount = 0;
       for (VirtiusScore currentSession : meetSessionList) {
         if (currentSession.getScoreUrl() == null || currentSession.getScoreUrl().isEmpty()) {
           logger.warn(
@@ -59,6 +61,13 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
               currentSession);
           continue;
         }
+
+        if (sessionCount > 0 && sessionCount % WEBDRIVER_RESTART_INTERVAL == 0) {
+          logger.info("Restarting Chrome after {} sessions to free accumulated memory.", sessionCount);
+          closeWebDriver();
+          initializeWebDriver();
+        }
+        sessionCount++;
 
         logger.info("{} - Begin extracting scores for the session.", currentSession.getScoreUrl());
 
@@ -101,7 +110,7 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
             By.xpath("//button[contains(@class, 'infoButton')]")));
     infoButton.click();
 
-    logger.debug("{} - Wait for the 'INFO' tooltip-inner div to be visible", sessionUrl);
+    logger.trace("{} - Wait for the 'INFO' tooltip-inner div to be visible", sessionUrl);
     wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("tooltip-inner")));
 
     String infoTitle = driver.findElement(By.cssSelector(".tooltip-inner .title")).getText();
@@ -112,7 +121,7 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
     logger.debug("{} - Meet info: title='{}', date='{}', location='{}', teamScoring='{}'",
         sessionUrl, infoTitle, infoDate, infoLocation, infoTeamScoring);
 
-    logger.debug("{} - Dismiss the INFO tooltip by clicking the INFO button again.", sessionUrl);
+    logger.trace("{} - Dismiss the INFO tooltip by clicking the INFO button again.", sessionUrl);
     infoButton.click();
     wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("tooltip-inner")));
 
@@ -186,6 +195,7 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
           "return window.__copiedText;");
 
       if (exportedText != null && !exportedText.isBlank()) {
+        logger.info("{} - Export data size: {}", sessionUrl, exportedText.length());
         logger.trace("{} - Export data:\n{}", sessionUrl, exportedText);
       } else {
         logger.info("{} - No export data captured.", sessionUrl);
