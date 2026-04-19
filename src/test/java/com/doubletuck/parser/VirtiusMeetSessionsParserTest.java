@@ -1,5 +1,6 @@
 package com.doubletuck.parser;
 
+import com.doubletuck.model.DisciplineCategory;
 import com.doubletuck.model.VirtiusScore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -70,7 +71,7 @@ class VirtiusMeetSessionsParserTest {
   void parseSessions_noMensTag_isWag() throws Exception {
     parseSessions.invoke(parser, buildHtml(wagHeroDiv("Open", "Sat 1/04/2025 @ 9:00 AM",
         "https://virti.us/session?s=1", false)));
-    assertThat(getViewSessions().get(0).isWag()).isTrue();
+    assertThat(getViewSessions().get(0).getDiscipline()).isEqualTo(DisciplineCategory.WAG);
   }
 
   @Test
@@ -89,7 +90,7 @@ class VirtiusMeetSessionsParserTest {
   void parseSessions_mensTagPresent_isMag() throws Exception {
     parseSessions.invoke(parser, buildHtml(wagHeroDiv("Open", "Mon 2/10/2025 @ 10:00 AM",
         "https://virti.us/session?s=2", true)));
-    assertThat(getViewSessions().get(0).isWag()).isFalse();
+    assertThat(getViewSessions().get(0).getDiscipline()).isEqualTo(DisciplineCategory.MAG);
   }
 
   // --- fallback URL rewriting ---

@@ -60,7 +60,7 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
           continue;
         }
 
-        logger.info("Begin extracting scores for session {}.", currentSession.getScoreUrl());
+        logger.info("{} - Begin extracting scores for the session.", currentSession.getScoreUrl());
 
         String scoreText = extractScores(currentSession);
         if (scoreText != null) {
@@ -70,12 +70,12 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
             currentSession.setExportFilename(exportFile.getFileName().toString());
             currentSession.setExportDate(LocalDateTime.now());
             currentSession.setExportStatus(VirtiusScore.ExportStatus.EXPORTED);
-            logger.info("Exported score data for session {} to {}: {}", currentSession.getScoreUrl(),
-                currentSession.getExportFilename(), currentSession);
+            logger.info("{} - Score data was extracted and saved to {}", currentSession.getScoreUrl(),
+                        currentSession.getExportFilename());
           } catch (Exception e) {
             currentSession.setExportStatus(VirtiusScore.ExportStatus.ERROR);
             currentSession.setExportMessage(e.getMessage());
-            logger.error("Error exporting score data for session {}.", currentSession, e);
+            logger.error("{} - An error occurred when exporting the score data.", currentSession.getScoreUrl(), e);
           }
         }
       }

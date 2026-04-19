@@ -21,7 +21,7 @@ public class VirtiusScore {
   private String meetName;
   private LocalDateTime meetDate;
   private String meetLocation;
-  private boolean isWag = true;
+  private DisciplineCategory discipline = DisciplineCategory.UNK;
   private ExportStatus exportStatus = ExportStatus.NOT_PROCESSED;
   private String exportFilename;
   private LocalDateTime exportDate;
@@ -30,8 +30,7 @@ public class VirtiusScore {
   public enum ExportStatus {
     NOT_PROCESSED,
     ERROR,
-    EXPORTED,
-    SKIPPED
+    EXPORTED
   }
 
   public String generateFileName() {
@@ -44,7 +43,7 @@ public class VirtiusScore {
         getMeetDate().format(formatter),
         "V",
         getSessionId(),
-        isWag() ? "WAG" : "MAG",
+        getDiscipline().name(),
         getMeetName().replaceAll(("[/\\\\\\s-#'&()@:]+"), ""));
   }
 }

@@ -20,6 +20,7 @@ import org.apache.commons.csv.CSVRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.doubletuck.model.DisciplineCategory;
 import com.doubletuck.model.VirtiusScore;
 
 import lombok.Getter;
@@ -38,10 +39,11 @@ public class ExportTrackingFileWriter {
   private enum Headers {
     MEET_DATE,
     MEET_NAME,
+    MEET_LOCATION,
     SCORE_SITE,
     SESSION_ID,
     SCORE_URL,
-    WAG_MAG,
+    DISCIPLINE,
     EXPORT_STATUS,
     EXPORT_FILENAME,
     EXPORT_TIMESTAMP,
@@ -100,10 +102,11 @@ public class ExportTrackingFileWriter {
     row[Headers.MEET_DATE.ordinal()] = session.getMeetDate() == null ? ""
         : session.getMeetDate().format(DATE_FORMATTER);
     row[Headers.MEET_NAME.ordinal()] = asNonNullString(session.getMeetName());
+    row[Headers.MEET_LOCATION.ordinal()] = asNonNullString(session.getMeetLocation());
     row[Headers.SCORE_SITE.ordinal()] = "Virtius";
     row[Headers.SESSION_ID.ordinal()] = asNonNullString(session.getSessionId());
     row[Headers.SCORE_URL.ordinal()] = asNonNullString(session.getScoreUrl());
-    row[Headers.WAG_MAG.ordinal()] = session.isWag() ? "WAG" : "MAG";
+    row[Headers.DISCIPLINE.ordinal()] = session.getDiscipline().name();
     row[Headers.EXPORT_STATUS.ordinal()] = asNonNullString(session.getExportStatus());
     row[Headers.EXPORT_FILENAME.ordinal()] = asNonNullString(session.getExportFilename());
     row[Headers.EXPORT_TIMESTAMP.ordinal()] = session.getExportDate() == null ? ""
@@ -137,9 +140,11 @@ public class ExportTrackingFileWriter {
           score.setMeetDate(LocalDateTime.parse(meetDateStr, DATE_FORMATTER));
         }
         score.setMeetName(row.get(Headers.MEET_NAME));
+        score.setMeetLocation(row.get(Headers.MEET_LOCATION));
         score.setSessionId(row.get(Headers.SESSION_ID));
         score.setScoreUrl(row.get(Headers.SCORE_URL));
-        score.setWag("WAG".equals(row.get(Headers.WAG_MAG)));
+        String disciplineStr = row.get(Headers.DISCIPLINE);
+        score.setDiscipline(disciplineStr.isEmpty() ? DisciplineCategory.UNK : DisciplineCategory.valueOf(disciplineStr));
         String exportStatusStr = row.get(Headers.EXPORT_STATUS);
         if (!exportStatusStr.isEmpty()) {
           score.setExportStatus(VirtiusScore.ExportStatus.valueOf(exportStatusStr));

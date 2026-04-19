@@ -1,5 +1,6 @@
 package com.doubletuck.command;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
@@ -51,9 +52,14 @@ public class BulkExportScoresCommand implements Runnable {
 
     Path exportDirectoryPath = Path.of(exportDirectory);
     if (!Files.isDirectory(exportDirectoryPath)) {
-      logger.error("Export directory '{}' does not exist or is not a directory. Exiting export processing.",
-          exportDirectory);
-      return;
+      logger.info("Export directory '{}' does not exist. Creating the directory.", exportDirectory);
+      try {
+        Files.createDirectories(exportDirectoryPath);
+        logger.info("Export directory '{}' created.", exportDirectory);
+      } catch (IOException e) {
+        logger.error("Export directory '{}' could not be created. Exiting export processing.", exportDirectory, e);
+        return;
+      }
     }
 
     Path exportTrackingFilePath = Path.of(exportDirectory, exportTrackingFilename);

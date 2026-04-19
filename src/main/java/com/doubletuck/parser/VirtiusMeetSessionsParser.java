@@ -8,6 +8,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.doubletuck.model.DisciplineCategory;
 import com.doubletuck.model.VirtiusScore;
 
 import java.time.LocalDateTime;
@@ -135,9 +136,9 @@ public class VirtiusMeetSessionsParser extends AbstractWebParser {
 
       // Check if there's a "Mens" tag pill. If it doesn't exist, then it's WAG.
       Element mensTag = heroDiv.selectFirst("span.tagPill.mens");
-      boolean isWag = mensTag == null; // If no mens tag, then it's WAG
+      DisciplineCategory discipline = mensTag == null ? DisciplineCategory.WAG : DisciplineCategory.MAG;
 
-      logger.info("Found {} meet {} on {}: {}", (isWag ? "WAG" : "MAG"), meetName, meetDate, scoreUrl);
+      logger.info("Found {}: {} on {} ({})", scoreUrl, meetName, meetDate, (discipline == null ? "UNK" : discipline.name()));
 
       // Only add if we have a valid URL
       if (!scoreUrl.isEmpty()) {
@@ -145,7 +146,7 @@ public class VirtiusMeetSessionsParser extends AbstractWebParser {
         session.setScoreUrl(scoreUrl);
         session.setSessionId(scoreUrl.substring(scoreUrl.indexOf("s=") + 2));
         session.setMeetName(meetName);
-        session.setWag(isWag);
+        session.setDiscipline(discipline);
         if (meetDate != null && !meetDate.trim().isEmpty()) {
           session.setMeetDate(LocalDateTime.parse(meetDate, dateFormatter));
         }
