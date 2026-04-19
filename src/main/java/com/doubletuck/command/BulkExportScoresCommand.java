@@ -78,8 +78,10 @@ public class BulkExportScoresCommand implements Runnable {
           .map(VirtiusScore::getSessionId)
           .collect(Collectors.toSet());
       virtiusScoreList.removeIf(s -> exportedSessionIds.contains(s.getSessionId()));
-      logger.info("{} Virtius sessions skipped because they are alreay exported.",
-          initialSessionCount - virtiusScoreList.size());
+      int skipSessionsCount = initialSessionCount - virtiusScoreList.size();
+      if (skipSessionsCount > 0) {
+        logger.info("{} Virtius sessions already exported. Skip processing for those sessions.", skipSessionsCount);
+      }
     }
 
     VirtiusMeetScoreParser scoreParser = new VirtiusMeetScoreParser(exportDirectoryPath, virtiusScoreList);

@@ -69,9 +69,10 @@ public class ExportTrackingFileWriter {
 
   public void writeFile(List<VirtiusScore> sessions) {
     try {
+      // Create the parent directory. If it already exists, then no creation occurs.
       Files.createDirectories(trackingFilePath.getParent());
     } catch (IOException e) {
-      logger.error("An error when creating");
+      logger.error("An error occurred when creating directory {}", trackingFilePath.getParent(), e);
       return;
     }
 
@@ -120,7 +121,7 @@ public class ExportTrackingFileWriter {
     ArrayList<VirtiusScore> virtiusScoreList = new ArrayList<>();
 
     if (!Files.exists(trackingFilePath)) {
-      logger.error("The file {} does not exist.",
+      logger.info("File {} does not exist. No existing export results to read.",
           trackingFilePath.toString());
       return virtiusScoreList;
     }
