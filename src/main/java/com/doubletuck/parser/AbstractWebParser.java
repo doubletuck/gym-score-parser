@@ -30,6 +30,7 @@ public abstract class AbstractWebParser {
     protected void closeWebDriver() {
         if (this.driver != null) {
             this.driver.quit();
+            this.driver = null;
         }
     }
 }

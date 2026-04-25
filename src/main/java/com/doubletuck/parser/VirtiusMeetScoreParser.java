@@ -6,8 +6,10 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -34,6 +36,7 @@ import lombok.NonNull;
 public class VirtiusMeetScoreParser extends AbstractWebParser {
 
   private final static Logger logger = LoggerFactory.getLogger(VirtiusMeetScoreParser.class);
+  private final static int WEBDRIVER_RESTART_INTERVAL = 50;
 
   private final Path exportDataDirectory;
 
@@ -50,6 +53,7 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
     try {
       logger.info("Initiate the download of {} Virtius meet sessions.", this.meetSessionList.size());
       initializeWebDriver();
+      int sessionCount = 0;
       for (VirtiusScore currentSession : meetSessionList) {
         if (currentSession.getScoreUrl() == null || currentSession.getScoreUrl().isEmpty()) {
           logger.warn(
@@ -58,22 +62,30 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
           continue;
         }
 
-        logger.info("Begin extracting scores for session {}.", currentSession.getScoreUrl());
+        if (sessionCount > 0 && sessionCount % WEBDRIVER_RESTART_INTERVAL == 0) {
+          logger.info("Restarting Chrome after {} sessions to free accumulated memory.", sessionCount);
+          closeWebDriver();
+          initializeWebDriver();
+        }
+        sessionCount++;
 
-        String scoreText = extractScores(currentSession.getScoreUrl());
+        logger.info("{} - Start score data export.", currentSession.getScoreUrl());
+
+        String scoreText = extractScores(currentSession);
         if (scoreText != null) {
           try {
             Path exportFile = Path.of(exportDataDirectory.toString(), currentSession.generateFileName() + ".csv");
             writeTsvAsCsv(scoreText, exportFile);
+            logger.info("{} - Score data saved to file {}", currentSession.getScoreUrl(), 
+                exportFile.getFileName().toString());
             currentSession.setExportFilename(exportFile.getFileName().toString());
             currentSession.setExportDate(LocalDateTime.now());
             currentSession.setExportStatus(VirtiusScore.ExportStatus.EXPORTED);
-            logger.info("Exported score data for session {} to {}: {}", currentSession.getScoreUrl(),
-                currentSession.getExportFilename(), currentSession);
+            logger.info("{} - Finish score data export.", currentSession.getScoreUrl());
           } catch (Exception e) {
             currentSession.setExportStatus(VirtiusScore.ExportStatus.ERROR);
             currentSession.setExportMessage(e.getMessage());
-            logger.error("Error exporting score data for session {}.", currentSession, e);
+            logger.error("{} - An error occurred when exporting the score data.", currentSession.getScoreUrl(), e);
           }
         }
       }
@@ -86,8 +98,54 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
   }
 
   @SuppressWarnings("null")
-  private String extractScores(@NonNull String sessionUrl) {
+  private void extractMeetInfo(VirtiusScore session, WebDriverWait wait) {
+    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(
+        "M/d/yyyy '@' h:mm a",
+        Locale.ENGLISH);
+    String sessionUrl = session.getScoreUrl();
+
+    logger.debug("{} - Click on the 'INFO' button to get meet information such as title, date, and location.",
+        sessionUrl);
+    WebElement infoButton = wait.until(
+        ExpectedConditions.elementToBeClickable(
+            By.xpath("//button[contains(@class, 'infoButton')]")));
+    infoButton.click();
+
+    logger.trace("{} - Wait for the 'INFO' tooltip-inner div to be visible", sessionUrl);
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("tooltip-inner")));
+
+    String infoTitle = driver.findElement(By.cssSelector(".tooltip-inner .title")).getText();
+    String infoDate = driver.findElement(By.cssSelector(".tooltip-inner .date")).getText();
+    String infoLocation = driver.findElement(By.cssSelector(".tooltip-inner .location")).getText();
+    String infoTeamScoring = driver.findElement(By.cssSelector(".tooltip-inner .teamscoring")).getText();
+
+    logger.debug("{} - Meet info: title='{}', date='{}', location='{}', teamScoring='{}'",
+        sessionUrl, infoTitle, infoDate, infoLocation, infoTeamScoring);
+
+    logger.trace("{} - Dismiss the INFO tooltip by clicking the INFO button again.", sessionUrl);
+    infoButton.click();
+    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("tooltip-inner")));
+
+    if (session.getMeetName() == null || session.getMeetName().isEmpty()) {
+      logger.info("{} - Setting meet name to '{}' from the INFO panel.", sessionUrl, infoTitle);
+      session.setMeetName(infoTitle);
+    }
+
+    if (session.getMeetDate() == null) {
+      logger.info("{} - Setting meet date to '{}' from the INFO panel.", sessionUrl, infoDate);
+      session.setMeetDate(LocalDateTime.parse(infoDate, dateFormatter));
+    }
+
+    if (session.getMeetLocation() == null || session.getMeetLocation().isEmpty()) {
+      logger.info("{} - Setting meet location to '{}' from the INFO panel.", sessionUrl, infoLocation);
+      session.setMeetLocation(infoLocation);
+    }
+  }
+
+  @SuppressWarnings("null")
+  private String extractScores(@NonNull VirtiusScore session) {
     String exportedText = null;
+    String sessionUrl = session.getScoreUrl();
 
     try {
       logger.trace("{} - Invoke the web driver and go to the url.", sessionUrl);
@@ -95,6 +153,8 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
 
       logger.trace("{} - Pause for 10 seconds.", sessionUrl);
       WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+      extractMeetInfo(session, wait);
 
       logger.trace("{} - Click on the 'STATS' button", sessionUrl);
       WebElement statsButton = wait.until(
@@ -136,6 +196,7 @@ public class VirtiusMeetScoreParser extends AbstractWebParser {
           "return window.__copiedText;");
 
       if (exportedText != null && !exportedText.isBlank()) {
+        logger.info("{} - Export data size: {}", sessionUrl, exportedText.length());
         logger.trace("{} - Export data:\n{}", sessionUrl, exportedText);
       } else {
         logger.info("{} - No export data captured.", sessionUrl);

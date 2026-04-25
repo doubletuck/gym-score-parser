@@ -1,5 +1,6 @@
 package com.doubletuck.parser;
 
+import com.doubletuck.model.DisciplineCategory;
 import com.doubletuck.model.VirtiusScore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.tuple;
 
 class ExportTrackingFileWriterTest {
 
@@ -60,17 +62,22 @@ class ExportTrackingFileWriterTest {
   }
 
   @Test
-  void writeAndReadFile_preservesWagFlag() {
+  void writeAndReadFile_preservesDiscipline() {
     VirtiusScore wagScore = wagScore("1", "WAG Meet");
-    wagScore.setWag(true);
+    wagScore.setDiscipline(DisciplineCategory.WAG);
     VirtiusScore magScore = wagScore("2", "MAG Meet");
-    magScore.setWag(false);
+    magScore.setDiscipline(DisciplineCategory.MAG);
+    VirtiusScore unkScore = wagScore("3", "UNK Meet");
+    unkScore.setDiscipline(DisciplineCategory.UNK);
 
-    writer.writeFile(List.of(wagScore, magScore));
+    writer.writeFile(List.of(wagScore, magScore, unkScore));
     List<VirtiusScore> result = writer.readFile();
 
-    assertThat(result.get(0).isWag()).isTrue();
-    assertThat(result.get(1).isWag()).isFalse();
+    assertThat(result).extracting(VirtiusScore::getSessionId, VirtiusScore::getDiscipline)
+        .containsExactlyInAnyOrder(
+            tuple("1", DisciplineCategory.WAG),
+            tuple("2", DisciplineCategory.MAG),
+            tuple("3", DisciplineCategory.UNK));
   }
 
   @Test
@@ -223,7 +230,7 @@ class ExportTrackingFileWriterTest {
     score.setSessionId(sessionId);
     score.setMeetName(meetName);
     score.setScoreUrl("https://virti.us/session?s=" + sessionId);
-    score.setWag(true);
+    score.setDiscipline(DisciplineCategory.WAG);
     score.setExportStatus(VirtiusScore.ExportStatus.NOT_PROCESSED);
     return score;
   }

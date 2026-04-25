@@ -8,6 +8,11 @@ java -jar gym-score-parser.jar --help
 java -jar gym-score-parser.jar <command> --help
 ```
 
+Or, for convenience, use the [gym-score-parser](../bin/gym-score-parser) script. It wraps the abovementioned jar call into a script.
+```
+bin/gym-score-parser <command>
+```
+
 ---
 
 ## Commands
@@ -15,6 +20,9 @@ java -jar gym-score-parser.jar <command> --help
 ### `generate-tracking-file`
 
 Generates a CSV tracking file that lists all the meets found on the Virtius home page. The tracking file records each meet and its export status. It is used by `bulk-export-scores` to determine which meets have already been exported.
+
+### Implementation Status
+Not yet completed
 
 #### Options
 
@@ -84,4 +92,43 @@ bulk-export-scores --overwrite-export-files
 
 # Combine options
 bulk-export-scores --export-directory /data/exports --export-tracking-filename 2026-meets.csv --overwrite-export-files
+```
+
+---
+
+### `export-scores`
+
+Exports scores for one or more specific Virtius sessions by session ID. Each session's scores are written to a separate CSV file. Export status for every session is recorded in the tracking file.
+
+Sessions that have already been exported (as recorded in the tracking file) are skipped by default. Use `--overwrite-export-files` to re-export them.
+
+#### Options
+
+| Option | Required | Description |
+| --- | --- | --- |
+| `--sessions <session-ids>` | Required | One or more session IDs separated by commas. |
+| `--export-directory <directory>` | Optional | Directory where exported score files are written. Defaults to `export.data.directory` in `application.properties`. |
+| `--export-tracking-filename <filename>` | Optional | Name of the file used to track export status. Defaults to `export.tracking-filename` in `application.properties`. The file is stored in `--export-directory`. |
+| `--overwrite-export-files` | Optional | If present, sessions that were previously exported are re-exported and their files are overwritten. If omitted, previously exported sessions are skipped. |
+
+#### Examples
+
+```
+# Export a single session
+export-scores --sessions 12345
+
+# Export multiple sessions
+export-scores --sessions 12345,67890,11111
+
+# Write exports to a specific directory
+export-scores --sessions 12345 --export-directory /data/exports
+
+# Use a custom tracking filename
+export-scores --sessions 12345 --export-tracking-filename 2026-meets.csv
+
+# Re-export sessions, overwriting existing files
+export-scores --sessions 12345,67890 --overwrite-export-files
+
+# Combine options
+export-scores --sessions 12345,67890 --export-directory /data/exports --export-tracking-filename 2026-meets.csv --overwrite-export-files
 ```

@@ -18,7 +18,7 @@ java -jar target/gym-score-parser-1.0.0.jar
 mvn spring-boot:run -q 2>&1 &
 ```
 
-There are no tests in this project. The Spring Boot test dependency exists but no test classes are defined.
+Run tests with `mvn test`. Test classes exist under `src/test/` for `ExportTrackingFileWriter`, `VirtiusMeetScoreParser`, `VirtiusMeetSessionsParser`, and `VirtiusScore`.
 
 ## Architecture
 
